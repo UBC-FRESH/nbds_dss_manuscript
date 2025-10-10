@@ -1,0 +1,1105 @@
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{adjustbox}
+\usepackage{textcomp}
+\usepackage{comment}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{url}
+\usepackage{pifont}
+\usepackage{makecell}
+
+\journal{Journal of Cleaner Production}
+
+\begin{document}
+\begin{frontmatter}
+
+\title{Developing a decision support system to assess forest management scenarios as a nature-based decarbonization solution: A case study from a mining company in British Columbia, Canada}
+
+\author{Elaheh Ghasemi}
+\author{Kathleen Coupland}
+\author{Salar Ghotb}
+\author{Gregory Paradis\corref{cor1}}
+
+\address{University of British Columbia, Faculty of Forestry, Vancouver, V6T 1Z4, British Columbia, Canada}
+
+
+\cortext[cor1]{Corresponding author. 
+\\Email adresses: elaheh.ghasemi@ubc.ca (E. Ghasemi), kathleen.coupland@ubc.ca (K. Coupland), salar.ghotb@ubc.ca (S. Ghotb) gregory.paradis@ubc.ca (G. Paradis).}
+
+\begin{abstract}
+This study, realized in partnership with a leading global gold producer, explores how forest management nature-based solutions (NbS) can be integrated into decarbonization strategies to achieve carbon neutrality by 2050. NbS, including carbon sequestration in forests are expected to play a critical role in achieving and minimizing the costs of meeting decarbonization commitments in the mining sector. This research develops an open-source decision support system (DSS) to model forest harvesting scenarios around three mining sites in British Columbia (BC), Canada, using publicly available geospatial data, forest inventory and landscape level forest management models. The DSS compares a business-as-usual scenario with alternative forest harvesting scenarios allowing for the examination of various objectives, such as maximizing harvest volume, minimizing harvested area, maximizing ecosystem carbon stocks, and minimizing net emissions. Key performance indicators (KPIs) are tracked to evaluate environmental, economic, and social aspects. The study does not prescribe specific harvesting strategies, instead the findings highlight that forest management objectives influence outcomes across KPIs. Scenarios prioritizing higher harvest volumes yield greater economic and social benefits but often compromise environmental indicators. Conversely, restricting harvesting improved the environmental indicators. The developed DSS is adaptable and capable of running diverse scenarios with varying input parameters, offering a valuable tool for identifying forest management strategies that support nature-based decarbonization and reduce net emissions surrounding mining operations.
+\end{abstract}
+
+%%Research highlights
+\begin{highlights}
+\item Research highlight 1
+\item Research highlight 2
+\end{highlights}
+
+\begin{keyword}
+Forest management \sep Nature-based decarbonization \sep Forest harvesting \sep Sustainability \sep Ecosystem service \sep Mining industry \sep Carbon neutrality
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+\label{sec:introduction}
+Climate change continuously threatens communities through changing weather patterns, causing frequent and severe natural disasters such as floods, hurricanes, and wildfires on an unprecedented scale. Anthropogenic activities, identified as the main driver of climate change \citep{LEALFILHO2018589}, coupled with the rapid pace of urbanization and industrialization, have accelerated greenhouse gas (GHG) emissions, primarily carbon dioxide (CO\textsubscript{2}) \citep{Song2019}. In 2015, the Paris Agreement established global GHG targets, with the goal of limiting the increase in the average global temperature to less than 2°C above pre-industrial levels by 2050 \citep{Unfccc2015}. Despite this, it is unlikely most that countries can meet goals of Paris Agreement \citep{taylor2021managing},  making immediate decarbonization actions critical \citep{wang2024critical}. Hard-to-abate industries such as mining, oil and gas contribute significantly to GHG emissions accounting for almost 40\% of global CO\textsubscript{2} emissions \citep{gross2021challenge}.
+
+The mining sector independently contributes approximately 2\%–3\% of total global emissions \citep{Bellois2022}. Mining operations contribute to GHG emissions due to their reliance on diesel-powered equipment \citep{Figueiredo2023} however, the mining is essential to supplying raw materials needed for energy, communication and transportation. In addition, the growing adoption of green technologies, such as electric vehicles and renewable energy, is expected to further increase the demand for mineral resources \citep{Jowitt2020, BRIMM2021}. 
+
+In light of the global transition toward decarbonization and net-zero emissions, the mining sector is under  pressure to align with Paris Agreement targets. Many leading mining companies have committed to achieving net-zero emissions by 2050, or sooner \citep{Legge2021}. However, achieving these targets will require transformative changes in current and future operations. \cite{Figueiredo2023} proposes that decarbonizing the mining sector over the next three decades will necessitate a fundamental shift in energy use, replacing fossil fuels with clean electricity and renewable energy sources. Although exploration of electrification solutions and the integration of renewable energy technologies is essential, especially in large-scale surface mining operations, there are challenges associated with these transitions \citep{Issa2023}. Although there are potential opportunities for adopting renewable energy there are also significant barriers, including high upfront costs and infrastructure limitations \citep{Issa2023}. \cite{Rumsa2025} reviewed global iron and steel decarbonization roadmaps and found that while near-zero emissions are theoretically achievable by 2050, the sector may fall short of net-zero targets by around 10\% due to barriers like limited resources, insufficient investment in new technologies, and gaps in policy frameworks. Of importance for this research is that these roadmaps focus narrowly on technological solutions while overlooking nature-based solutions (NbS). 
+
+Carbon capture and storage (CCS) technologies, work alongside natural carbon sinks, such as forests, oceans, and soils, which naturally sequester and store carbon emissions from the atmosphere. Rehabilitating mining sites using NbS such as reforestation and soil restoration enhances the capacity of natural carbon sinks. \cite{Fox2020} explored the potential of reforestation as a carbon sequestration strategy on the legacy surface of coal mining sites in southern Appalachia, USA. Their research quantified carbon storage in reforested areas, revealing that reforestation could sequester significantly more carbon than other strategies, offering substantial carbon offset benefits. Similarly, \cite{Nguyen2023} reviewed studies investigating the potential of biochar to address the issue of contaminated mining soils, highlighting its role in soil remediation and ecosystem recovery.
+ 
+ NbS offer a complementary pathway to support the mining industry's decarbonization efforts, providing long-term environmental and social benefits while contributing to postive global climate action. \cite{Griscom2017} highlight the critical role of land stewardship in achieving the Paris Agreement’s climate goals. Their research identifies and quantifies a variety of NbS strategies that enhance carbon storage and reduce emissions across forests, wetlands, grasslands, and agricultural lands. By investing in carbon offset projects, such as alternative sustainable forest management approaches, reforestation, and ecosystem restoration, mining companies can address residual emissions that cannot be eliminated through technological means alone. The concept of NbS emerged as an innovative approach for managing natural systems while balancing benefits for both nature and society \citep{sowinska2022nature}. NbS encompass actions that protect, sustainably manage, and restore natural and modified ecosystems to address critical societal challenges, ultimately benefiting biodiversity and human well-being. These solutions play a crucial role in mitigating GHG emissions, particularly from the agriculture, forestry, and land-use sectors, which account for approximately 22\% of annual global emissions. Recognizing their potential, the scientific community has increasingly acknowledged NbS as an effective climate strategy. The recently approved Sixth Assessment Report by the Intergovernmental Panel on Climate Change (IPCC) affirms that well-implemented NbS ``reduce a range of climate change risks to people, biodiversity, and ecosystem services with multiple co-benefits'' \citep{Portner2022IPCC}. Despite this recognition, NbS remain underutilized in addressing global challenges, including climate change and biodiversity loss \citep{IUCN2020}. Several studies have explored the applications and effectiveness of NbS across different sectors. \cite{Ptichnikov2023} investigated the role of forests in GHG absorption and decarbonization in Russia, while \cite{Hisano2024functional} highlighted the ecological potential of plant diversity as an NbS strategy for long-term climate resilience in Canada. In urban environments, \cite{Kabisch2016nature} explored NbS applications in green and blue infrastructure to mitigate climate-induced impacts, whereas \cite{Rey2024forest} emphasized NbS effectiveness in reducing natural disaster risks, while preserving biodiversity. Additionally, \cite{drever2021natural} examined Canada’s recent investments in NbS, underscoring their role in addressing both climate change and biodiversity conservation. 
+
+While previous studies have focused on the societal and ecological outcomes of NbS, few have specifically examined NbS from an industry specific perspective. Research in this area could provide valuable insights into how industries can utilize NbS as a method to align with policies on carbon offset and identify investment opportunities in the carbon market.
+
+Sustainable forest management (SFM) is widely recognized as an effective NbS for addressing environmental challenges. Forest ecosystems provide critical services, including biodiversity, air and water purification, carbon sequestration, and timber production \citep{Valipour2021}. Given the increasing demand for forest products, as well as rising concerns over GHG emissions, forest managers are interested in integrating carbon sequestration and storage into SFM \citep{Seely2002}. The role of SFM in climate change mitigation is multifactorial, as it can enhance carbon storage and sequestration while maintaining ecosystem resilience and biodiversity \citep{Thrippleton2021}.
+
+Forest management strategies vary widely, ranging from passive approaches, where forests are left to develop naturally, to intensive approaches, like plantations and agroforestry \citep{bettinger2013forest}. \cite{smyth2014quantifying} evaluated the climate change mitigation potential of managed forest sector in Canada from 2015 to 2050 by analyzing various forest management and wood-use strategies. However, \cite{Valipour2021}, based on modeling of a northern hardwood forest ecosystem in the USA, demonstrated that intensive forest harvesting can negatively impact long-term forest sustainability. SFM aims to balance ecological, economic and social objectives between generations \citep{macdicken2015global}.
+Forest management activities, along with the intensity of those activities, can affect the amount of carbon storage at various times  throughout the forest life cycle, with young forests offering a high carbon capture capacity and mature forests serving as long-term carbon storage \citep{Waring2020}. Beyond carbon sequestration (i.e., the capture and storage of carbon), SFM also contributes to decarbonization by promoting harvested wood products (HWPs) that replace carbon-intensive materials \citep{papa2023modeling}.  However, trade-offs exist between maximizing timber production and optimizing carbon storage, requiring careful decision-making to balance environmental and economic outcomes. In addition, forest management plays a crucial role in supporting employment and rural economies, with job opportunities often linked to management intensity and the volume of harvested wood \citep{johnston2017managing}. 
+
+Integrating SFM into areas surrounding mining operations presents an opportunity to enhance carbon sequestration and storage while supporting broader sustainability and economic objectives. By incorporating NbS into land-use planning, forest management can contribute to reducing the mining sector’s carbon footprint and aligning with long-term net-zero emission targets \citep{smith2022long}.
+However, a critical challenge lies in ensuring that the NbS carbon credit projects generate verifiable carbon benefits while avoiding unintended ecological consequences, such as biodiversity loss. This study aims to address these issues by developing an open-source decision support system (DSS) that helps mitigate these risks. The DSS is designed to provide transparency and reliability in assessing forest management strategies and their carbon benefits. Unlike many existing carbon accounting models this system leverages publicly available data to ensure openness, transparency and replicability. 
+
+Several complexities arise in this endeavor. Modeling forest inventory at scale is computationally demanding due to the large spatial areas, long time-frames and projections, vast data volumes, and multiple forest management objectives. Furthermore, integrating the forest supply chain, from forest growth to HWPs, adds another layer of complexity, particularly when accounting for the displacement impacts of wood products on emissions. In this study, we connected a forest estate model with a carbon accounting framework to calculate the carbon impacts of various forest management scenarios. Beyond measuring carbon stocks and net emissions, we also evaluate key performance indicators (KPI) such as tree species composition, old-growth forest area, and socio-economic impacts. To our knowledge, this study is the first to comprehensively assess forest management scenarios on forest lands surrounding a mining site, considering environmental, economic and social indicators. This research aims to contribute to the literature by addressing the following key questions:
+\begin{itemize}
+\item How can different forest management scenarios support broader decarbonization efforts in the mining sector?
+\item What are the environmental, social, and economic impacts of different forest management scenarios?
+\end{itemize}
+
+The remainder of this paper is structured as follows. Section \ref{sec:methods-overview} describes the methodological approach adopted in this study. Section \ref{sec: Case Study} outlines the case study. Section \ref{sec: Results} presents the results, followed by a discussion in Section \ref{sec: discussion}. Finally, Section \ref{sec: conclusion} offers concluding remarks.
+
+\section{Methods}
+\label{sec:methods-overview}
+\subsection{Overview}
+\label{sec: Overview}
+The main objective of this study is to develop a DSS that compares business as usual and alternative forest management scenarios in areas around mining sites while considering environmental, social  and economic impacts. In the developed DSS, we integrate the Wood Supply Simulation System (ws3) to simulate forest growth and forest management activities \citep{Paradis_ws3_a_Wood_2025} and libCBM \citep{libcbmpy} to estimate long-term carbon stocks and flows in forest ecosystems. ws3 is an open-source forest estate model developed as a Python software package. It is designed to support SFM planning in the context of forest resource analysis. libCBM is an open-source version of the Carbon Budget Model of the Canadian Forest Sector (CBM-CFS3) \citep{KURZ2009480}, a carbon accounting model developed by the Canadian Forest Service for forested ecosystems. It calculates carbon stocks and changes over time. To model the carbon dynamics of HWP, the DSS incorporates two main processes: simulating the decay of multiple product pools and accounting for HWP substitution effects. 
+
+The DSS automates the modeling process by pushing a pair of scenarios (business-as-usual and alternative) through the simulation and optimization pipeline, comparing their outputs across various objectives including maximizing harvest volume, minimizing harvest area, maximizing carbon stocks, and minimizing net carbon emissions. Key forest management planning outputs reported by the DSS include harvested area (ha), harvested volume (m³), and growing stock (m³). Moreover, the DSS reports environmental, social, and economic indicators for each scenario over a customizable simulation horizon. For environmental indicators, the DSS tracks total ecosystem carbon stock (ton), total system net emissions (tCO2e), tree species diversity (Shannon Evenness Index), and old-growth forest area (ha). Under economic factors, it evaluates revenue generated from harvested wood (\$). Lastly, for social indicators, it assesses the number of jobs created under each strategy. Figure~\ref{fig:Fig.1} illustrates the process of preparing the data and executing the model.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.1.pdf} 
+    \caption{Overview of the data preparation and model execution process.}
+    \label{fig:Fig.1}  
+\end{figure}
+
+\subsection{Modeling framework}
+\label{sec: model}
+
+In this section, we describe the modelling framework (base mathematical model and various objective function formulations).
+
+\subsubsection{Mathematical model}
+\label{sec: Mathematical model}
+
+The DSS can simulate forest growth and different forest management activities (e.g., harvesting) at the landscape level for long-term horizons. To have more efficient planning, a linear programming model adapted from \cite{paradis2013risk} is employed to optimize harvest scheduling decisions considering initial forest inventory and forest growth and yield curves to achieve a certain objectives while satisfying a set of defined constraints.
+The proposed model has several notations, input parameters, and variables shown in Table \ref{tab:Notations}.
+
+\begin{table}[H]
+\caption{Notations of the model} % Caption placed above the table
+\label{tab:Notations} % Place label right after caption
+\centering
+\begin{tabular}{lp{10cm}} % Define 2 columns (left, paragraph for description)
+\hline
+\textbf{Notations} & \textbf{Description} \\
+\hline
+\textit{Sets} &  \\
+\hline
+$Z$ & Set of spatial zones $i \in Z$ \\
+
+$K$ & Set of available prescriptions $k \in K$ \\
+$J$ & Set of forest outputs, $j \in \{1: \text{area}, 2: \text{volume}\}$ \\
+$T$ & Set of time periods in the planning horizon \\
+\hline
+\textit{Parameters} & \\
+\hline
+$c_{ij}$ & Objective function contribution of prescription $j \in J_i$ in zone $i \in Z$ \\
+$\beta_j$ & Admissible level of variation on yield of targeted output $j \in J$ \\
+$\alpha_{ikjt}$ & Quantity of output $j \in J$ produced in period $t \in T$ by prescription $k \in K$ in zone $i \in Z$ \\
+$l_{jt}$ & Lower bound on yield of output $j \in J$ in period $t \in T$ \\
+$u_{jt}$ & Upper bound on yield of output $j \in J$ in period $t \in T$ \\
+$y_{j}$ & targeted sustainable yield of output $j \in J$  \\
+$gl$ & Lower bound on the volume growth at the end of the planning horizon\\
+\hline
+\textit{Variables} &  \\
+\hline
+$I_{jt}$ & Inventory quantity of output $j \in J$ in period $t \in T$\\
+$G_{jt}$ & Growth amount of output $j \in J$ in period $t \in T$\\
+$x_{ik}$ & Proportion of zone $i \in Z$ on which prescription $k \in K$ is applied
+\end{tabular}
+\label{tab:model}
+\end{table}
+
+The mathematical formulation of the proposed model is as follows:
+\begin{align}
+\text{max} & \quad \sum_{i \in Z} \sum_{k \in K} c_{ij} x_{ik} \label{eq:1} \\
+\text{s.t.} & \quad \sum_{k \in K} x_{ik} = 1, \quad \forall i \in Z \label{eq:2} \\
+& \quad y_{j} (1 - \beta_j) \leq \sum_{i \in Z} \sum_{k \in K} \alpha_{ikjt} x_{ik} \leq y_{j} (1 + \beta_j), \quad \forall j \in J, t \in T \label{eq:3} \\
+& \quad l_{jt} \leq \sum_{i \in Z} \sum_{k \in K} \alpha_{ikjt} x_{ik} \leq u_{jt}, \quad \forall j \in J, t \in T \label{eq:4} \\
+& \quad I_{2t} = I_{2(t-1)} + G_{jt} - \sum_{i \in Z} \sum_{k \in K} \alpha_{ik2t} x_{ik}, \quad \forall t \in T \label{eq:5} \\
+& \quad I_{2T} \geq gl \label{eq:6} \\
+& \quad 0 \leq x_{ik} \leq 1, \quad \forall i \in Z, k \in K \label{eq:7}
+\end{align}
+Objective function (\ref{eq:1}) maximizes the desired objective considering the applied prescriptions. Depending on the problem, different objectives can be defined that will be discussed in Section \ref{sec: Objective functions} Constraint sets (\ref{eq:2}) imply that total the proportion of prescriptions on each zone should be one. It is noteworthy that doing nothing is a valid prescription along with other prescriptions such as harvesting. Constraint sets (\ref{eq:3}) are even flow constraints, ensuring consistent target outputs (i.e., harvest volumes and areas). Constraint sets (\ref{eq:4}) impose upper bound and lower bounds on periodic yields. Constraint sets (\ref{eq:5}) determine volume inventory for each period including new growth and harvested volume. A lower bound for the volume inventory in the last period is imposed by the constraint set (\ref{eq:6}). Finally, the domain of decision variables is determined by the constraint sets (\ref{eq:7}).
+
+\subsubsection{Objective functions}
+\label{sec: Objective functions}
+It should be noted that the model is generic and the objective function can be to maximize harvest volume, minimize harvest area, maximize carbon stock, or minimize net emissions.
+
+\emph{Maximize harvest volume.}
+This objective aims to maximize the total harvested volume  where the volume of harvested wood is obtained using timber yield curves. Objective function (\ref{eq:8}) aims to maximize the total harvest volume over the planning horizon.
+\begin{align}
+       \text{max} & \quad \sum_{i \in Z} \sum_{k \in K} \sum_{t \in T} \alpha_{ik2t} x_{ik} \label{eq:8} 
+\end{align}
+
+\emph{Maximize carbon stock.}
+Objective function (\ref{eq:9}) tries to maximize amount of carbon stock in the ecosystem, i.e., forest inventory, and HWP. To get the ecosystem carbon stock, carbon curves are generated by libCBM \citep{libcbmpy} to track biomass and DOM carbon pools. Biomass pools are referred to those carbon stored in living components including roots and merchantable volumes while Dead Organic Matter (DOM) pools include carbon stocks in woody debris and litter \citep{KURZ2009480}.  HWPs are important carbon stocks \citep{geng2017review}, and their half lives are used as a reliable measure to determine carbon storage \citep{braun2016apparent}. Eqs. (\ref{eq:9}) and (\ref{eq:10}) are used to determine the periodic and total carbon stock over the planning horizon, respectively.
+
+\begin{align}
+\max \quad & S^{e} + \sum_{p \in P} \sum_{t \in T} S_{pt} \label{eq:9}
+\end{align}
+
+\begin{align}
+S_{pt} &= \left( \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right) S_{p(t-1)} + \sum_{i \in Z} \sum_{k \in K} \alpha_{ik2t} x_{ik} \cdot w \cdot n \right) \label{eq:10}
+\end{align}
+
+\noindent where:
+\begin{align*}
+    \text{w} &:= \text{wood density}, \\
+    \text{n} &:= \text{carbon content}, \\
+    \text{P} &:= \text{Set of HWP } p \in P, \\
+    \text{S}^{e} &:= \text{carbon retained in the ecosystem}, \\
+    \text{S}_{pt} &:= \text{carbon stock in HWP } p \text{ in period } t , \\
+    t_{1/2}^{p} &:= \text{half-life of the HWP }p \in P.
+\end{align*}
+
+\emph{Minimize net emissions.}
+   Objective function (\ref{eq:11}) minimizes total emissions considering ecosystem emissions, HWPs decay and displacement effects.
+   The ecosystem emissions are obtained from libCBM \citep{libcbmpy} while emissions from decaying HWPs are calculated using their half lives. Additionally, these HWPs have displacement effects, avoiding emissions by replacing other GHG-intensive products \citep{geng2017review}. Periodic and total carbon emissions over the planning horizons are calculated using Eqs. (\ref{eq:12}) and (\ref{eq:13}) respectively.
+   
+\begin{align}
+   \min & \quad E^{e} + \sum_{p \in P} \sum_{t \in T} E_{pt} - \sum_{d \in D} \sum_{t \in T} E_{dt}
+   \label{eq:11}
+\end{align}   
+\begin{multline}
+    E_{pt} = \left( (1 - \frac{ln 2}{t_{1/2}^{p}}) \times 
+    \sum_{i \in Z} \sum_{k \in K} \alpha_{ik2t} x_{ik} \times \text{m}_{p} \times \text{w} \right. \\
+    \left. \times \text{n} \times \frac{44}{12} \right)
+    \label{eq:12}
+\end{multline}
+\begin{multline}
+    E_{dt} = \left( \sum_{i \in Z} \sum_{k \in K} \sum_{p \in P} \alpha_{ik2t} x_{ik} \times \text{m}_{p} \times r_{pd} \times \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right) \right. \\
+    \left. \times \text{f} \times \text{w} \times \text{n} \times \frac{44}{12} \right)
+    \label{eq:13}
+\end{multline}
+  
+\noindent where:
+\begin{align*}
+    \text{D} &:= \text{set products replaced by HWPs}, d \in D, \\
+    \text{f} &:= \text{displacement factor}\\
+    \text{E}^{e} &:= \text{carbon emissions released by the ecosystem}, \\
+    \text{E}_{pt} &:= \text{carbon emissions released by HWP } p \in P \text{ in period } t \in T \\
+    \text{E}_{dt} &:= \text{carbon emissions avoided when } d \in D \text{ is replaced by HWP }p \in P \\
+    \text{r}_{pd} &:= \text{percentage of HWP } p \in P \text{ that would replace product } d \in D, \\
+    \text{m}_{p} &:= \text{percentage of harvest amount converted to HWP } p \in P
+    \end{align*}
+
+\emph{Minimize harvest area.}
+Objective function (11) tries to minimize the total harvested area while satisfying constraints.
+    
+\begin{align}
+    \text{min} & \quad \sum_{i \in Z} \sum_{k \in K} \sum_{t \in T} \alpha_{ik1t} x_{ik} \label{eq:14} 
+\end{align}
+
+The model also includes optional features that account for carbon stocks and emissions from harvested wood products (HWP), as well as the displacement effects of HWP. Hence, due to the optional features and different objective functions, various scenarios can be defined.
+
+\subsection{Key performance indicators}
+\label{sec: indicators}
+The output of the developed DSS includes a set of KPI spanning environmental, economic, and social aspects, which allows the evaluation of forest management practices under various scenarios. 
+
+Most of the studies conducted in the past focused on the various environmental impacts of forest management activities \citep{Seely2002, KURZ2009480, Valipour2021, Boisvenue2022}. In the DSS developed in this study, carbon stocks are evaluated as part of environmental indicators in multiple pools, including total carbon of the ecosystem (biomass and DOM) and HWP.
+Net emissions are calculated by considering emissions from ecosystem and HWP decay, while accounting for carbon removals from forest growth and the displacement effect of HWP. 
+
+The biodiversity of forested ecosystems significantly influences the long-term carbon storage dynamics \citep{Diaz2009}. In \citep{Diaz2006}, biodiversity is defined as the number, abundance, composition, spatial distribution and interactions of genotypes, populations, species, functional types, traits, and landscape units within a given system. However, in this study, we evaluated biodiversity indicators by evaluating the diversity of tree species and the characteristics of old growth, quantified using the Shannon Evenness Index (SEI) \citep{Gergel2017} and the old growth yield curve generated in this study, respectively. \cite{McGarvey2015} modeled the relationship between carbon stocks and the age of the oldest trees using linear regression. Their findings illustrate that old-growth forests have stored more carbon. 
+
+The Shannon Evenness Index (\(SEI\)) is calculated as Eq. (\ref{eq:15}):
+\begin{equation}
+SEI = \frac{-\sum_{i=1}^{S} p_i \ln p_i}{\ln S}
+\label{eq:15}
+\end{equation}
+where \( S \) is the total number of species (species richness), and \( p_i \) is the proportion of individuals belonging to species \( i \).
+The SEI yields a value between 0 and 1, where 1 indicates complete evenness in species distribution. A higher Shannon Index Evenness value reflects greater biodiversity, indicating a more balanced distribution of tree species within the forest.
+
+Our DSS calculates the Old Growth Index (OGI) by modeling forest age distribution and volume growth. As shown in Eq.(\ref{eq:16}), the index is defined as a piecewise function where the OGI value is zero for younger forest ages, linearly interpolates between specified age thresholds, and reaches a maximum value of 1 for older forests, reflecting the progression towards old-growth conditions.
+
+\begin{equation}
+\label{eq:16}
+f(x) = 
+\begin{cases}
+  0 & \text{if } a \leq \Delta_1 a^* + \Delta_2 \\
+  \dfrac{a - (\Delta_1 a^* + \Delta_2)}{(\Delta_3 a' + \Delta_4) - (\Delta_1 a^* + \Delta_2)} & \text{if } \Delta_1 a^* + \Delta_2 < a < \Delta_3 a' + \Delta_4 \\
+  1 & \text{if } a \geq \Delta_3 a' + \Delta_4
+\end{cases}
+\end{equation}
+
+
+where $a$, $a^*$, and $a^{\prime}$ denote the age of the stand, the rotation age (the optimal age at which a forest stand is harvested to maximize timber yield), and the age of maturity (i.e., the age when the stand or tree reaches its peak growth or maximum yield before decline), respectively. The parameters $\Delta_1$, $\Delta_2$, $\Delta_3$, and $\Delta_4$ represent arbitrary values used to adjust the age thresholds. For the case study presented here, we use $\Delta_1 = \Delta_3 = 1$ and $\Delta_2 = \Delta_4 = 0$.
+
+As stated by \cite{Waring2020}, effective forest management as a climate mitigation strategy involves navigating various trade-offs, requiring a balance between long-term environmental and economic considerations.
+In this study, the revenue from the harvested wood serves as an economic indicator, quantifying the financial returns from the harvest of the forest. In addition, job creation, estimated based on the volume of wood harvested, is used as a social indicator to assess the employment opportunities generated by harvesting activities and related industries.
+\subsection{Computational setup}
+\label{Computational}
+The developed DSS is implemented in Python, with its model interface designed within a Jupyter notebook running in a JupyterLab environment. The system was developed and tested on a cloud-based virtual machine running Ubuntu Linux 24 operating system. The framework is designed to be highly flexible, allowing deployment in various computing environments, including desktop computers running Microsoft Windows.
+
+\section{Case study}
+\label{sec: Case Study}
+\subsection{Study area}
+\label{sec: Study area}
+The mining company considered in this study operates several active and legacy mining sites across Canada. Legacy mine sites are locations where mining previously took place but is no longer active \citep{worrall2009towards}. In this study we focus on three mining sites in British Columbia (BC), Canada, including two legacy sites and one active site, as a case study. 
+Figure \ref{fig:Fig.2} illustrates the Area of Interest (AOI) for the mining sites, while Table \ref{tab:area} details their Timber Supply Areas (TSA), and area specifications. A TSA is ``a designated area established by the BC Ministry of Forests in order to practice sound, integrated, resource management principles to improve the allowable annual cuts"\citep{CanadaOpenData2025}. The study area for Mining Site 1 is located in the northwest-central region of BC, spanning 1,137,000 hectares and encompassing parts of the Bulkley, Kispiox, Lakes, Morice, and Prince George TSAs. The study area surrounding Mining Site 2, located in the northwestern part of BC, falls within the Cassiar TSA, covering approximately 538,000 hectares. The study area for Mining Site 3, also situated in the northwestern region of BC, is within the Cassiar TSA, encompassing about 405,000 hectares. 
+
+Figure \ref{fig:Fig.2} shows the location of the mining sites and the surrounding watersheds used to define the AOI. The watershed containing the mine location is identified as the primary watershed, the adjacent watersheds as secondary, and watersheds neighboring the secondary ones as tertiary. This structure creates a hierarchical framework of watersheds surrounding each mine site. The watershed was chosen as the basis for defining the AOIs because it is a meaningful ecological spatial unit, with its size and shape related to local ecosystem boundaries and gradients \citep{flotemersch2016watershed}. While watersheds were used to define the AOI, other landscape features could also serve this purpose. This method was selected with the intention that future studies could vary management intensity across the different watershed levels. The DSS framework presented here would also work with AOIs defined using alternative criteria. The colored areas represent the Timber Harvesting Land Base (THLB, in green), forested non-contributing areas (in yellow), and excluded zones (in gray) within each AOI, providing context for land classifications surrounding each site. The THLB is an estimate of the land where timber harvesting is both acceptable and economically feasible \citep{bcgov2025}. Poor and non-productive forest lands are classified as forested non-contributing areas, while non-forested lands such as roads, rivers, wetlands, and lakes are excluded from the AOI.
+
+\begin{table}[H]
+\centering
+\caption{Mining sites and areas}
+\label{tab:area}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lllrrr}
+\toprule
+\makecell[l]{Mining\\Site} & 
+\makecell[l]{Site\\Status} & 
+\makecell[l]{Timber\\Supply\\Areas (TSAs)} & 
+\makecell[r]{Excluded\\Area\\(k ha)} & 
+\makecell[r]{Non-\\contrib.\\Area (k ha)} & 
+\makecell[r]{THLB\\Area\\(k ha)} \\
+\midrule
+Mining Site 1 & Legacy & \makecell[l]{Bulkley, Kispiox,\\ Lakes, Morice,\\ Prince George} & 225.1 & 249.3 & 662.9 \\
+Mining Site 2 & Legacy & Cassiar & 347.1 & 56.5 & 134.7 \\
+Mining Site 3 & Active & Cassiar & 13.9 & 202.1 & 188.7 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.2.jpg} 
+    \caption{Location of mining sites in British Columbia and their AOI.}
+    \label{fig:Fig.2}    
+\end{figure}
+
+
+
+\subsection{Data}
+\label{sec:data}
+Apart from the mining site locations, all other input data used in this study are publicly available, primarily sourced from the BC Government Public Portal (DataBC or the Data Catalogue). The developed DSS requires various input data, including the initial forest inventory, growth and yield curves, carbon stock and emission curves, as well as assumptions regarding HWP allocation to product streams, HWPs decay rates, and displacement effects. 
+
+This study utilizes publicly available BC Vegetation Resource Inventory (VRI) datasets to populate the forest stand inventory. Each forest stand is represented by the growth curve of its dominant species, with both hardwood and softwood components modeled using individual growth data. In BC, the Table Interpolation Program for Stand Yields (TIPSY) and the Variable Density Yield Projection (VDYP) models are the standard tools for estimating timber yield projections in managed and natural stands, respectively \citep{BCGov_ForestInventory}. To simulate tree growth dynamics in this study, timber yield curves are generated using the VDYP model.
+The DSS employs the default Canadian parameters for libCBM \citep{KURZ2009480}, ensuring alignment with our study area. To optimize carbon stocks and emissions, carbon stock and emissions curves were derived from libCBM to model carbon dynamics over time, building upon the carbon yield curve method developed by \cite{neilson2008optimal}.
+To track old growth forest, oldness curves are generated using Eq. (\ref{eq:16}), considering yield curves and rotation age to assess the distribution of the stand age over different periods. Similar to \cite{Ke2024}, the Life Cycle Analysis (LCA) method is employed to track emissions from HWP using the same parameters.
+
+\subsection{Forest management scenarios}
+\label{sec: Developed scenarios}
+While forest management includes a wide range of activities, our DSS specifically focuses on harvest scheduling as a key component. We develop two sets of management scenarios: a business-as-usual baseline and alternative scenarios. In the business as usual scenario, harvest scheduling is optimized by considering even-flow constraints on harvested area and volume, allowing for a 5\% variation, as well as upper bounds on harvest intensity and lower bounds on growing stock. For growing stock, we assume that the final forest inventory at the end of the planning horizon is not less than 90\% of the initial inventory. To determine the maximum harvest level for areas surrounding mining sites under the baseline scenario, we apply the annual allowable cut (AAC) concept used in BC. The AAC for each TSA is determined by the Chief Forester at least once every ten years \citep{BCForestApportionment}. Since AAC and THLB are predetermined for each TSA, we calculate the maximum harvest volume for each mining site based on the proportion of its THLB relative to the corresponding TSA. In alternative scenarios, the intensity of harvest decreases by 10\%. We coupled these scenarios with an additional scenario that examines the model's behavior when only even-flow constraints on harvest volume and area are considered. Hence, a suite of 11 scenarios was developed for this analysis. All scenarios are modeled over a 100-year planning horizon, divided into 10 periods of 10 years each. Clear-cutting was the only harvesting system used. Table \ref{tab:scenario_constraints} provides an overview of the scenarios included in the analysis.
+
+\begin{table}[H]
+\caption{Scenarios and applied constraints}
+\centering
+\label{tab:scenario_constraints}
+\resizebox{\textwidth}{!}{%
+{\small
+\begin{tabular}{llccc}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[l]{Scenario\\ID} & 
+\makecell[l]{Even-flow\\(Area \& Volume)} & 
+\makecell[l]{Max Volume\\Limit} & 
+\makecell[l]{Growing Stock\\Constraint} \\
+\midrule
+Baseline    & Baseline & * & *                  & * \\
+Scenario 0  & S0       & * & --                 & -- \\
+Scenario 1  & S1       & * & 90\% of Baseline   & * \\
+Scenario 2  & S2       & * & 80\% of Baseline   & * \\
+Scenario 3  & S3       & * & 70\% of Baseline   & * \\
+Scenario 4  & S4       & * & 60\% of Baseline   & * \\
+Scenario 5  & S5       & * & 50\% of Baseline   & * \\
+Scenario 6  & S6       & * & 40\% of Baseline   & * \\
+Scenario 7  & S7       & * & 30\% of Baseline   & * \\
+Scenario 8  & S8       & * & 20\% of Baseline   & * \\
+Scenario 9  & S9       & * & 10\% of Baseline   & * \\
+\bottomrule
+\end{tabular}%
+}
+}
+\end{table}
+
+
+\section{Results}
+\label{sec: Results}
+\subsection{Parameter initialization}
+\label{sec:Parameter initialization }
+The developed DSS is highly flexible and can accommodate any time horizon with varying period lengths. We analyzed the baseline and alternative scenarios described in Section \ref{sec: Developed scenarios} (referred to as S0 to S9) for the three mining sites with four objectives: maximizing harvest volume, minimizing harvest area, maximizing carbon stocks, and minimizing net emissions. 
+
+Although the developed DSS can account for various HWPs in different proportions with slight modifications, this study focuses on two primary products derived from harvested wood: lumber and paper. Based on historical data on log availability and usage in BC in 2020, 50\% of the logs produced are allocated to solid wood products, while the remaining 50\% are designated for paper production to make paper \citep{BC_Mill_List_2020}. However, for the purpose of this study, we assume that 80\% of the harvested wood is converted into lumber and 20\% into paper. This assumption allows us to explore harvesting scenarios under the condition that a greater portion of harvested wood is dedicated toward products with longer life cycles. As stated by the IPCC, paper typically has a half-life of up to 2 years, whereas wood-based panels have a half-life of up to 25 years, and sawnwood has a half-life of 35 years \citep{Brunet-Navarro2016}. Therefore, in this study, a half-life of 30 years is assigned to lumber, while paper is given a half-life of 2 years. Furthermore, to account for the substitution effect, we assume that 50\% of the lumber is processed into cross-laminated timber (CLT), which has a long-term carbon displacement impact due to its extended lifespan, estimated at around 100 years according to \citep{head2020dynamic} and is considered effectively permanent for the purposes of this study. Since our primary objective was to demonstrate the applicability of the DSS rather than to generalize the results, we did not conduct a sensitivity analysis on these parameters.
+
+The following subsections offer a detailed analysis of the DSS output for mining site 1, while results for Mining Sites 2 and 3 are provided in \ref{sec:appendix1} and \ref{sec:appendix2}, respectively. 
+
+\subsection{Harvesting scenarios across planning objectives}
+\label{sec: comparison scenarios/objectives}
+The results show that decisions related to harvest scheduling are sensitive to the selected objective. Figure \ref{fig:Fig.3} compares harvested area, harvested volume, and growing stock in the forest lands surrounding Mining Site 1 under the baseline scenario and scenario S0 (which includes only even-flow constraints), across four key objectives: maximizing harvested volume (\text{Max\_hv}), maximizing carbon stock (\text{Max\_st}), minimizing net emissions (\text{Min\_em}), and minimizing harvested area \text{Min\_ha}).
+
+For the objective of maximizing harvested volume, scenario S0 results in higher harvested area and harvested volume compared to the baseline. Growing stock under scenario S0 declines more over the planning horizon, indicating more intensive harvesting. Notably, S0 shows increased harvesting levels toward the end of the planning horizon, reflecting an effort to maximize wood resource extraction over time. Under the carbon stock maximization objective, the DSS suggests no harvesting at all in scenario S0. This leads to a substantially higher growing stock, highlighting the system’s preference for carbon accumulation when not constrained by harvesting targets. Similar results are observed under the objective of minimizing harvested area, where the model avoids harvesting entirely to preserve standing biomass. For the objective of minimizing net emissions, harvested area and volume under scenario S0 are significantly lower across all periods compared to the baseline. However, based on the initialized parameters, the DSS recommends a low level of harvesting under the scenario S0. The difference in outcomes between the scenario S0 under  carbon stock maximization and net emissions minimization is likely due to the displacement effect, which reduces the impact of harvest-related emissions by assuming they are offset through substitution.
+
+It is also important to examine the behavior of the baseline scenario, which includes harvesting targets applied uniformly across all objectives. Although the same constraints on harvested area, volume, and growing stock are imposed under each objective, the outcomes differ. Harvest volume remains relatively consistent across objectives, reflecting the need to meet predefined volume targets. However, this consistency does not extend to harvested area, where notable variations are observed. These differences may be attributed to the diverse growth rates of tree species and their varying contributions to biomass pools and DOM. Consequently, the harvested area may vary depending on the species composition prioritized under different management objectives.
+
+Figure \ref{fig:Fig.4} illustrates how different management objectives influence the species composition of retained stands under the baseline scenario. It compares the distribution of tree species at the end of the planning horizon across four harvesting objectives, alongside a no-harvest case that reflects the initial inventory composition.
+Retention patterns for Western Hemlock (\textit{Tsuga heterophylla}), Douglas-fir (\textit{Pseudotsuga menziesii}), Trembling Aspen (\textit{Populus tremuloides}), and Spruce and Spruce Hybrids (\textit{Picea}) remain relatively consistent across objectives, with Western Hemlock and Spruce showing slightly higher retention under the maximize carbon stock objective. Pines (\textit{Pinus}) emerges as the dominant retained species under the minimize emissions objective. In contrast, Balsam (\textit{Abies lasiocarpa}) dominates under the maximize carbon stock objective.
+
+Figure \ref{fig:Fig.5} presents changes in harvested area, harvested volume, and growing stock under the baseline and alternative scenarios (S0 to S9) across different management objectives for the forest lands surrounding Mining Site 1. The results of the growing stock experiments revealed a clear linear relationship between harvest volume and the percentage of growing stock retained. Specifically, higher growing stock retention rates were associated with lower harvest volumes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.3.pdf} 
+    \caption{Comparison of harvested area, volume, and growing stock in the forest lands surrounding Mining Site 1: Baseline vs. scenario S0 across planning objectives.}
+    \label{fig:Fig.3}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.4.pdf} 
+    \caption{Comparison of retained tree species under planning objectives and the no-harvest condition in forest lands surrounding Mining Site 1 (baseline scenario).}
+    \label{fig:Fig.4}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.5.pdf} 
+    \caption{Comparison of forest management outcomes in the forest lands surrounding Mining Site 1: Baseline vs. Alternative scenarios (S0 to S9) across planning objectives.}
+    \label{fig:Fig.5}    
+\end{figure}
+
+\subsection{KPIs across harvesting scenarios under different planning objectives}
+\label{sec: KPIs}
+Forest management decisions are not only shaped by the objectives we choose, but can also have varying impacts on economic, social, and environmental KPIs.
+Figure \ref{fig:Fig.6} illustrates the comparison of the baseline and alternative scenarios (S0 to S9) across various KPIs, considering the objectives of maximizing harvested volume (\text{Max\_hv}), maximizing carbon stock (\text{Max\_st}), minimizing net emissions (\text{Min\_em}), and minimizing harvested area \text{Min\_ha}) for the forest lands surrounding Mining Site 1. To enhance clarity, the results have been normalized for better visualization and detailed numerical results can be found in Tables \ref{tab:KPIs_max_hv} to \ref{tab:KPIs_min_ha}.
+
+Under the objective of maximizing harvest volume, Scenario S0 results in high economic and social indicator values due to elevated harvest levels. However, this comes at the expense of environmental performance, with lower scores in the old-growth and net emissions indicators—reflecting increased carbon emissions and loss of old-growth forest. As harvest volume restrictions become more stringent in scenarios such as S1 and S2, harvest levels decline accordingly, leading to notable improvements in both net emissions and old-growth preservation. Scenario S9, with the lowest harvest volume under this objective, demonstrates the strongest performance on these environmental indicators.
+
+Species diversity shows minimal variation across scenarios regardless of the objective. Scenario S1, which allows for 90\% of the baseline harvest volume, achieves the highest value. However, no consistent trend is observed between harvest volume and species diversity, as values fluctuate across scenarios.
+While economic and social indicators increase linearly with harvest volume, since they are directly calculated based on the amount of harvested timber, this linearity does not apply to net emissions, species diversity, or old-growth indicators.
+
+Under the objectives of maximizing carbon stocks, minimizing net emissions, and minimizing harvest area, the baseline scenario shows the highest socioeconomic indicator values due to its relatively high harvest volume. However, it also produces the highest net emissions and results in the lowest area of old-growth forest. From an environmental and biodiversity standpoint, Scenario S0 (which entails the lowest or no harvesting under these objectives) performs best, offering the greatest carbon retention and preservation of old-growth forest.
+
+Similar to the patterns observed under the maximizing harvest volume, no clear relationship is evident between harvest levels and species diversity, with values varying irregularly across scenarios.
+
+In the following subsections, we analyze the performance of each KPI across different scenarios and management objectives in the forested lands surrounding Mining Site 1.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.6.pdf} 
+    \caption{Comparison of harvesting scenarios across KPIs under different planning objectives in the forest lands surrounding Mining Site 1.}
+    \label{fig:Fig.6}    
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 1 under the objective of maximizing harvest volume}
+\label{tab:KPIs_max_hv}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Harvest\\Volume\\(Mt)} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old\\Growth\\(k ha)} \\
+\midrule
+Baseline &  95.4 &  -10.2 & 100.8 & 3.4 & 0.733 & 196.4 \\
+S0       & 123.8 &   44.2 & 130.9 & 4.5 & 0.758 & 167.1 \\
+S1       &  85.8 &  -20.2 &  90.8 & 3.1 & 0.761 & 222.9 \\
+S2       &  76.3 &  -37.7 &  80.7 & 2.8 & 0.751 & 247.4 \\
+S3       &  66.8 &  -53.6 &  70.6 & 2.4 & 0.745 & 286.9 \\
+S4       &  57.2 &  -69.0 &  60.5 & 2.1 & 0.740 & 324.9 \\
+S5       &  47.7 &  -83.7 &  50.4 & 1.7 & 0.738 & 367.4 \\
+S6       &  38.2 &  -96.9 &  40.3 & 1.4 & 0.728 & 420.2 \\
+S7       &  28.6 & -116.5 &  30.3 & 1.0 & 0.733 & 462.8 \\
+S8       &  19.1 & -127.3 &  20.2 & 0.7 & 0.737 & 502.6 \\
+S9       &   9.5 & -141.6 &  10.1 & 0.3 & 0.740 & 535.5 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 1 under the objective of maximizing carbon stock}
+\label{tab:KPIs_max_st}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr} % First column left-aligned
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Carbon\\Stock\\(MtC)} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & 199.4 &  -34.3 & 92.2 & 3.1 & 0.753 & 317.7 \\
+S0       & --    & -155.6 & --   & --  & 0.746 & 580.5 \\
+S1       & 202.3 &  -49.7 & 83.3 & 2.8 & 0.751 & 343.0 \\
+S2       & 204.9 &  -64.3 & 74.5 & 2.5 & 0.748 & 366.4 \\
+S3       & 207.4 &  -78.5 & 65.2 & 2.2 & 0.744 & 390.8 \\
+S4       & 209.6 &  -91.9 & 55.9 & 1.9 & 0.744 & 417.5 \\
+S5       & 211.6 & -105.0 & 46.4 & 1.6 & 0.744 & 445.6 \\
+S6       & 213.5 & -117.1 & 37.1 & 1.3 & 0.743 & 473.6 \\
+S7       & 215.1 & -128.6 & 27.9 & 0.9 & 0.742 & 500.6 \\
+S8       & 216.5 & -139.2 & 18.5 & 0.6 & 0.743 & 526.9 \\
+S9       & 217.7 & -148.5 &  9.3 & 0.3 & 0.743 & 552.5 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 1 under the objective of minimizing net emissions.}
+\label{tab:KPIs_min_em}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrr} % first column left-aligned, others centered
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline &  -33.2 & 92.2  & 3.1  & 0.726 & 214.5 \\
+S0       & -154.9 &  1.2  & 0.04 & 0.745 & 574.6 \\
+S1       &  -48.8 & 82.9  & 2.8  & 0.714 & 243.0 \\
+S2       &  -63.9 & 73.7  & 2.5  & 0.706 & 275.4 \\
+S3       &  -78.4 & 64.5  & 2.2  & 0.699 & 311.3 \\
+S4       &  -92.5 & 55.3  & 1.9  & 0.693 & 349.1 \\
+S5       & -105.9 & 46.1  & 1.6  & 0.693 & 385.0 \\
+S6       & -118.8 & 36.9  & 1.3  & 0.697 & 422.5 \\
+S7       & -130.3 & 27.6  & 0.9  & 0.707 & 459.1 \\
+S8       & -140.7 & 18.4  & 0.6  & 0.723 & 498.7 \\
+S9       & -148.9 &  9.4  & 0.3  & 0.737 & 538.8 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 1 under the objective of minimizing harvest area.}
+\label{tab:KPIs_min_ha}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr} % first column left aligned
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Harvest\\Area\\(k ha)} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & 381.9 &  -27.5 & 92.2 & 3.1  & 0.754 & 303.7 \\
+S0       & --    & -155.6 & --   & --   & 0.746 & 580.5 \\
+S1       & 333.3 &  -42.3 & 82.9 & 2.8  & 0.753 & 334.1 \\
+S2       & 287.4 &  -55.5 & 73.7 & 2.5  & 0.749 & 364.7 \\
+S3       & 244.0 &  -69.2 & 64.5 & 2.2  & 0.747 & 393.7 \\
+S4       & 203.3 &  -83.3 & 55.3 & 1.9  & 0.744 & 423.1 \\
+S5       & 164.5 &  -96.5 & 46.1 & 1.6  & 0.746 & 451.2 \\
+S6       & 126.8 & -109.0 & 36.9 & 1.3  & 0.743 & 479.4 \\
+S7       &  90.6 & -121.8 & 27.6 & 0.9  & 0.749 & 505.1 \\
+S8       &  57.4 & -133.9 & 18.4 & 0.6  & 0.749 & 530.3 \\
+S9       &  27.2 & -144.8 & 9.2  & 0.3  & 0.750 & 556.6 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+
+
+\subsubsection{Environmental indicators}
+\label{sec:Environmental indicators}
+Under the environmental indicators, we examined net emissions, old growth area, and tree species diversity. 
+Figure \ref{fig:Fig.7} presents a comparison of net emissions (tCO\textsubscript{2}e) across different forest management objectives under the baseline and alternative scenarios (S0–S9) in forested areas surrounding Mining Site 1. Although each scenario maintains consistent harvest volume constraints, net emissions vary depending on the management objective. All scenarios beyond S0 result in negative net emissions across all objectives. In contrast, Scenario S0 under the objective of maximizing harvest volume leads to a substantial increase in emissions, with high positive net emissions. From S1 to S9, the magnitude of negative emissions increases progressively. The baseline scenario consistently shows the smallest reduction in net emissions. Among the four objectives, minimizing net emissions achieves the greatest reductions in nearly all scenarios. Conversely, maximizing harvest volume consistently yields the least reductions, i.e., smaller negative values, highlighting a clear trade-off between production-oriented and climate mitigation goals.
+
+Figure \ref{fig:Fig.8} shows the progression of net emissions (tCO\textsubscript{2}e) over a 100-year planning horizon under four different forest management objectives. The graphs exhibit a cyclical pattern with spikes in emissions every 10 years, corresponding to harvest cycles. Under the objective of maximizing harvest volume, scenarios S0 through S5 as well as baseline scenario display periodic peaks of positive net emissions, suggesting that increasing harvest intensity beyond a certain threshold results in net carbon releases during specific planning periods. This trend reflects the carbon cost associated with aggressive timber extraction strategies.
+In contrast, under the objective of minimizing net emissions, only the baseline and S1 scenarios exhibit positive net emissions at peak points over the 100-year planning horizon. All other scenarios maintain consistently negative net emissions, highlighting the relative effectiveness of emissions-focused management objectives in sustaining long-term carbon sequestration performance.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.7.pdf} 
+    \caption{Comparison of net emissions across different scenarios and planning objectives in the forest lands surrounding Mining site 1.}
+    \label{fig:Fig.7}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.8.pdf} 
+    \caption{Comparison of net emissions across different scenarios and planning objectives in the forest lands surrounding Mining Site 1 over a 100-year planning horizon.}
+    \label{fig:Fig.8}    
+\end{figure}
+Figure \ref{fig:Fig.9} presents a comparative analysis of old growth forest area across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1. The results indicate a general increase in the the old growth area from Scenario S0 through S9 under all objectives. Notably, scenarios under minimizing harvest area and maximizing carbon stock tend to preserve more old growtharea relative to maximizing harvest volume objective and minimizing net emissions. However, the difference in old growth preservation decreases as the harvest intensity decreases from Scenario S1 to Scenario S9. The smallest old growth area is observed in Scenario S0, which focuses on maximizing harvest levels. 
+
+Figure \ref{fig:Fig.10} presents a comparison of tree species diversity across various harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1. The values range from 0.7 to 0.77, indicating moderately high tree species diversity under all scenarios and objectives. Notably, there is no dramatic decline in diversity under any specific scenario or objective. Among the planning objectives, minimizing net emissions consistently results in the lowest diversity values. Overall, the differences in species diversity are more strongly influenced by the planning objectives than by the specific harvesting scenarios.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.9.pdf} 
+    \caption{Comparison of old growth attributes across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1.}
+    \label{fig:Fig.9}    
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.10.pdf} 
+    \caption{Comparison of tree species diversity across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1.}
+    \label{fig:Fig.10}    
+\end{figure}
+
+\subsubsection{Socioeconomic indicators}
+\label{sec:Economic indicators}
+Under the Socioeconomic indicators, we examined the revenue from harvest volume as economic indicator and number of jobs created as the social indicator. Figures\ref{fig:Fig.11} illustrates the comparison of revenue (in dollars) across various harvesting scenarios (Baseline, S0–S9) and planning objectives in the forest lands surrounding Mining Site 1. It shows the linear relation between the harvest intensity and the revenue. The objective of maximizing harvest volume yields the highest revenue in the baseline. Revenue generally declines steadily from S1 to S9 across all objectives.
+
+Similar trends are observed in Figure \ref{fig:Fig.12}, which illustrates the number of jobs created across harvesting scenarios under different planning objectives. The results indicate that job creation closely follows harvest intensity, with the maximizing harvest volume objective consistently producing the highest employment levels across all scenarios.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.11.pdf} 
+    \caption{Comparison of revenue across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1.}
+    \label{fig:Fig.11}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.12.pdf} 
+    \caption{Comparison of number of jobs across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1.}
+    \label{fig:Fig.12}    
+\end{figure}
+
+\section{Discussion}
+\label{sec: discussion}
+\subsection{Forest management objectives and harvest  intensity scenarios: impacts on key environmental and socioeconomic indicators}
+\label{sec: Forest management objectives and harvest  intensity scenarios}
+The aim of this study was to develop a DSS for evaluating forest management objectives and scenarios in relation to environmental integrity and socioeconomic development. We examined a set of management objectives, including maximizing carbon stock or harvest volume and minimizing net emissions or harvest area, in a combination with a range of harvest intensity scenarios (S0–S9), applied across three case study sites. Environmental indicators included net emissions, old-growth forest area, and tree species diversity. Socioeconomic indicators focused on revenue generated from harvested wood products and employment associated with timber extraction. Although we do not prescribe any specific forest management strategy or generalize the findings to all other forests and cases, the results from the DSS offer useful insights based on the case studies examined in this study. 
+
+Our analysis showed that even when the same constraints on harvest volume were applied within a given scenario, different management objectives led to varying impacts on forest outcomes, including harvest volume and area, as well as growing stock. This pattern was observed in all three case study sites (see Figures \ref{fig:Fig.3}, \ref{fig:Fig.A.1}, and \ref{fig:Fig.B.1} for the mining sites 1, 2 and 3, respectively). The results indicate a linear relationship between harvest level and growing stock. In addition, changes in harvest volume have a proportional effect on the harvest area, without altering the pattern of harvesting (Figures \ref{fig:Fig.5}, \ref{fig:Fig.A.3}, \ref{fig:Fig.B.3}). Changes in harvest intensity also produce shifts in environmental and socioeconomic indicators. Scenarios with reduced harvest volumes generally lead to lower net emissions and an increase in old-growth forest area. However, these environmental benefits often come at the cost of reduced wood-based revenue and employment opportunities. Similarly, our results echo those of \cite{Hiltunen2021}, underscoring that no single strategy optimizes both environmental and socioeconomic outcomes simultaneously.
+
+While the relationship between harvest volume and socioeconomic indicators is linear, by design in the DSS, this does not hold true for environmental indicators such as the old-growth index, species diversity, and net emissions. For instance, in Table \ref{tab:KPIs_max_hv}, reducing the maximum harvest level from 90\% in scenario S1 to 80\% in scenario S2, under the objective of maximizing harvest volume, results in a 87\% improvement in net emissions. Similar trends are evident across other management objectives and case study sites. These differences become even more pronounced when comparing outcomes within the same harvest scenario but across different management objectives. For instance, under the baseline scenario in Mining Site 1, the net emissions objective improves the net emissions index by approximately 69\%, while choosing the objective of maximizing carbon stock leads to a 61\% increase in the old-growth index. However, both objectives are associated with a reduction of about 9\% in socioeconomic indicators compared to the objective of maximizing harvest volume (see Tables \ref{tab:KPIs_max_hv}–\ref{tab:KPIs_min_ha}). These results underscore how even small changes in planning objectives or harvest constraints can lead to differences in environmental outcomes. This finding is consistent with earlier work, such as that of \cite{Valipour2021}, who demonstrated how varying harvesting intensities can influence long-term forest dynamics and sustainability. These results underscore the influence of overarching management goals in determining forest outcomes, often outweighing the effects of harvest intensity alone.
+
+The developed DSS enables the quantification of trade-offs, helping to identify thresholds at which environmental benefits may begin to conflict with economic or social viability. By comparing outcomes across a range of scenarios, the tool supports planners and decision-makers in evaluating forest management objectives and strategies. This approach can inform efforts to contribute to climate change mitigation and promote forest management as a NbS.
+
+\subsection{The integration of biodiversity into forest management}
+\label{sec: Integration of biodiversity into forest management}
+The DSS developed in this study provides a useful tool for monitoring changes in old-growth forests and tree species composition under different forest management objectives and scenarios. Although climate change mitigation and biodiversity conservation have both received increasing attention in recent years, they are often treated as separate priorities. In practice, these goals are rarely addressed in an integrated or coordinated manner \citep{Diaz2009}.
+As highlighted by \cite{ezquerro2016operational}, forest management objectives have evolved significantly over the past few decades, with growing recognition of the importance of non-market ecosystem services such as biodiversity. However, effectively incorporating biodiversity considerations into forest planning remains a persistent challenge for both researchers and practitioners.
+
+While the three case studies presented here are not intended to represent all forest types or regions, the results offer valuable insights into how biodiversity responds to different management strategies. The DSS outputs reveal that tree species composition can vary considerably depending on whether harvesting is excluded or allowed under various management goals. The baseline scenarios for Mining Sites 1, 2, and 3 (Figures \ref{fig:Fig.4}, \ref{fig:Fig.A.2}, and \ref{fig:Fig.B.2}) demonstrate how different strategies influence which species are retained. For example, in the baseline scenarios for forest lands surrounding Mining Sites 1, 2, and 3, Pines, Balsam, and Spruce are the dominant retained species under the “minimize net emissions” objective. In contrast, Balsam becomes increasingly dominant under the “maximize carbon stock” objective across all sites. This shift suggests that species selection varies with management goals, reflecting differences in their relative capacity for carbon storage, based off the species different growth patterns and speed.
+
+The findings also suggest that the choice of management objective has a greater impact on tree species diversity than the intensity of harvesting itself (Figures \ref{fig:Fig.10}, \ref{fig:Fig.A.8}, and \ref{fig:Fig.B.8}). In other words, it is not just how much harvesting takes place, but the broader goals guiding SFM that shape which species are retained. Based on our results, overall species diversity does not change dramatically across scenarios, however small shifts in which species dominate can still affect how forests develop over time, including their structure, ecological succession, and resilience. Previous studies have noted that structurally complex forests often store more carbon \citep{Thom2019}, suggesting that species diversity may be an increasingly useful indicator for understanding carbon-related outcomes. 
+
+The results also show that, in addition to species diversity, the old-growth forest area varies depending on the management objective. For climate-related objectives, the area of old-growth forest tends to be slightly larger under the carbon stock maximization objective than under the net emission minimization objective. This pattern is consistent across all three case study sites (see Tables \ref{tab:KPIs_max_hv}–\ref{tab:KPIs_min_ha}, \ref{tab:KPIs_max_hv_site2}–\ref{tab:KPIs_min_ha_site2}, and \ref{tab:KPIs_max_hv_site3}–\ref{tab:KPIs_min_ha_site3} for Mining Sites 1, 2, and 3, respectively). In line with findings from \cite{McGarvey2015}, this study adds to the growing body of evidence suggesting that old-growth forests managed for carbon storage can also serve as important reservoirs of biodiversity. 
+
+\subsection{Scope and limitations}
+\label{sec: limitations}
+To the best of our knowledge, this is one of the first studies proposing a DSS that tracks carbon from forests to HWPs and the resulting displacement effects. The DSS also incorporates various objectives, scenarios, and constraints to simulate and optimize forest management practices. While the DSS is highly flexible and capable of simulating and optimizing a wide range of scenarios with varying input data, objectives, and constraints, the results presented are specific to the defined case studies and may not be directly applicable to other cases.
+
+Despite the benefits, this study has some limitations that present opportunities for future research. We assumed that the harvested wood is converted into only two types of HWPs, i.e., lumber and paper. Also, a simplified half-life of 30 years was assumed for lumber. A more rigorous life-cycle assessment could refine the results. Additionally, while the defined scenarios were based on the percentage of maximum harvest volume, considering other constraints can result in more realistic scenarios.
+
+The main goal of this study was to show the functionality of the DSS to generate results for each scenario. However, a sensitivity analysis is not conducted. Such analysis helps decision makers to know how sensitive the results would be against changes in input parameters such as half-lives and displacement factors. 
+
+The socioeconomic indicators used in this study were limited to revenue from harvested wood products and employment generated through harvesting activities. While informative, these metrics do not capture broader dimensions of social sustainability, such as community well-being, equity, or long-term economic resilience. Similarly, the biodiversity indicators focused primarily on tree species diversity and old-growth forest area, without accounting for other critical components of forest ecosystems, such as wildlife habitats, understory vegetation, or soil biodiversity. These simplifications, while necessary for tractability, point to opportunities for future work to incorporate a more holistic set of indicators that better reflect the complexity of forest socio-ecological systems. Furthermore, each of these aspects can be considered as objective functions along with harvest area and volume, carbon stocks, and carbon emissions in a multi-objective optimization model. This approach can enable decision makers to explore potential trade-offs between these objectives. 
+
+Finally, we looked at only clear cutting in the proposed DSS. Including other forest management activities, such as selective cutting, planting, fertilizing and/or partial cutting, would provide a more comprehensive assessment of their impacts on environmental and socioeconomic outcomes.
+
+\section{Conclusion}
+\label{sec: conclusion}
+This study developed and applied an open-source DSS to evaluate forest management strategies as an NbS for decarbonization in the context of mining operations in BC, Canada. By integrating environmental, economic, and social indicators, the DSS enables the assessment of trade-offs among various forest management objectives and harvesting scenarios.
+
+The results demonstrate that while socioeconomic outcomes, such as revenue and employment, respond linearly to changes in harvest amount, environmental indicators, including net emissions, old-growth retention, and species diversity, exhibit more complex and nonlinear responses. Management objectives play a decisive role in shaping these outcomes, often exerting a stronger influence than harvest amount alone. According to the results, scenarios focused on maximizing carbon stock or minimizing net emissions achieved substantial environmental benefits but were associated with declines in socioeconomic indicators. This analysis underscores the importance of clearly defined planning objectives in SFM, particularly when seeking to balance environmental and socioeconomic goals. The DSS facilitates the identification of thresholds where environmental improvements may begin to conflict with economic viability, thereby supporting more informed and balanced decision-making.
+
+While the findings provide valuable insights, they are based on a limited set of case studies and should not be generalized across all forest ecosystems or management contexts. The modeling relies on a number of assumptions regarding species responses, decay rates, and displacement effects, which may vary in other geographic or institutional settings. Future work should expand the application of the DSS across different forest types and policy contexts and incorporate dynamic ecological feedbacks and more nuanced socioeconomic indicators. Despite these limitations, the study offers a practical and adaptable tool for exploring forest management strategies as nature-based decarbonization solutions and contributes to a growing body of work at the intersection of forest management, climate action, and sustainable development.
+
+While the DSS facilitates assess to different forest management scenarios and KPIs, this study only focused on harvest scheduling and a limited set of KPIs, so it does not cover the full range of ecological and socioeconomic factors. The system also does not include other forest management practices, such as clear cutting, selective cutting, planting, or fertilization strategies, which could have a big impact on carbon storage and biodiversity. Adding these practices to the DSS would give a more complete picture of how forest management affects carbon neutrality.
+
+
+
+\section*{CRediT authorship contribution statement}
+\label{sec: CRediT}
+\textbf{Elaheh Ghasemi}: Conceptualization, Data curation, Formal analysis, Methodology, Software, Validation,  Visualization, Writing – original draft. \textbf{Kathleen Coupland}: Data Curation, Formal Analysis, Writing - Review \& Editing. \textbf{Salar Ghotb}: Software, Writing - original draft. \textbf{Gregory Paradis}: Data curation, Formal analysis, Funding acquisition, Methodology, Project administration, Resources, Software, Writing – review \& editing, Supervision.
+
+\section*{Declaration of competing interest}
+\label{sec:Declaration of Competing Interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this article.
+
+\section*{Acknowledgments}
+\label{sec:acknowledgments}
+This work was supported by Mitacs through the Accelerate Program in partnership with Newmont Goldcorp Inc. (Award IT32088), by the World Economic Forum through the Hoffmann Fellowship program (Award AWD-028246), and by the Bradshaw Research Initiative in Minerals and Mining (BRIMM). We thank Yunhao Xu and Rosalia Jaffray for their contributions to writing and reviewing early drafts of this manuscript.
+
+
+\section*{Data availability statement}
+\label{sec: data availability}
+The data and code supporting the findings of this study are available in \cite{nbds_dss_2025}. 
+
+\bibliographystyle{elsarticle-harv} 
+\bibliography{references}
+
+\appendix
+
+\newpage
+\section{Results of Mining Site 2}
+\label{sec:appendix1}
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+Here, we present the detailed results from running all defined scenarios under various objectives for Mining Site 2.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.1.pdf} 
+    \caption{Comparison of harvested area, volume, and growing stock in the forest lands surrounding Mining Site 2: Baseline vs. scenario S0 across planning objectives.}
+    \label{fig:Fig.A.1}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.2.pdf} 
+    \caption{Comparison of retained tree species under planning objectives and the no-harvest condition in forest lands surrounding Mining Site 2 (baseline scenario).}
+    \label{fig:Fig.A.2}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.3.pdf} 
+    \caption{Comparison of forest management outcomes in the forest lands surrounding
+Mining Site 2: Baseline vs. Alternative scenarios (S0 to S9) across planning objectives.}
+    \label{fig:Fig.A.3}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.4.pdf} 
+    \caption{Comparison of harvesting scenarios across KPIs under different planning objectives in the forest lands surrounding Mining Site 2.}
+    \label{fig:Fig.A.4}    
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 2 under the objective of maximizing harvest volume.}
+\label{tab:KPIs_max_hv_site2}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Harvest\\Volume\\(Mm\textsuperscript{3})} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline &  8.01  & -22.43 &  8.5 & 288.6 & 0.923 & 26.6  \\
+S0       & 13.93  &  -6.21 & 14.7 & 502.2 & 0.809 & 14.7  \\
+S1       &  7.20  & -20.82 &  7.6 & 259.8 & 0.917 & 31.5  \\
+S2       &  6.40  & -24.44 &  6.8 & 230.9 & 0.920 & 33.4  \\
+S3       &  5.60  & -27.88 &  5.9 & 202.0 & 0.918 & 34.9  \\
+S4       &  4.80  & -30.83 &  5.1 & 173.2 & 0.916 & 36.6  \\
+S5       &  4.00  & -33.80 &  4.2 & 144.3 & 0.917 & 39.0  \\
+S6       &  3.20  & -37.20 &  3.4 & 115.4 & 0.917 & 40.7  \\
+S7       &  2.40  & -40.17 &  2.5 &  86.6 & 0.920 & 42.7  \\
+S8       &  1.60  & -43.34 &  1.7 &  57.7 & 0.922 & 44.9  \\
+S9       &  0.80  & -46.26 &  0.8 &  28.9 & 0.926 & 52.3  \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\large
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 2 under the objective of maximizing carbon stock.}
+\label{tab:KPIs_max_CS_site2}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr} % first column left aligned
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Carbon\\Stock\\(MtC)} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & 36.67 & -32.70 & 7.7  & 263.8 & 0.818 & 24.7 \\
+S0       & 39.68 & -49.43 & --   & --    & 0.929 & 48.8 \\
+S1       & 37.10 & -35.00 & 7.0  & 237.4 & 0.822 & 26.3 \\
+S2       & 37.50 & -37.14 & 6.2  & 211.0 & 0.828 & 28.3 \\
+S3       & 37.88 & -39.16 & 5.4  & 184.6 & 0.849 & 30.2 \\
+S4       & 38.23 & -41.09 & 4.6  & 158.3 & 0.864 & 32.2 \\
+S5       & 38.56 & -42.92 & 3.9  & 131.9 & 0.869 & 34.4 \\
+S6       & 38.87 & -44.60 & 3.1  & 105.5 & 0.878 & 36.7 \\
+S7       & 39.13 & -46.23 & 2.3  & 79.1  & 0.896 & 39.0 \\
+S8       & 39.36 & -47.54 & 1.5  & 52.8  & 0.909 & 42.0 \\
+S9       & 39.54 & -48.58 & 0.8  & 26.7  & 0.921 & 45.5 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 2 under the objective of minimizing net emissions.}
+\label{tab:KPIs_min_em_site2}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & -33.38 & 7.7  & 263.8 & 0.867 & 19.8 \\
+S0       & -49.41 & 0.02 &   0.9 & 0.928 & 48.6 \\
+S1       & -35.59 & 7.0  & 237.4 & 0.869 & 25.0 \\
+S2       & -37.68 & 6.2  & 211.0 & 0.872 & 23.1 \\
+S3       & -39.67 & 5.4  & 184.6 & 0.877 & 25.1 \\
+S4       & -41.55 & 4.6  & 158.3 & 0.877 & 27.4 \\
+S5       & -43.33 & 3.9  & 131.9 & 0.881 & 30.2 \\
+S6       & -44.98 & 3.1  & 105.5 & 0.890 & 33.2 \\
+S7       & -46.28 & 2.3  &  79.1 & 0.894 & 36.8 \\
+S8       & -47.58 & 1.6  &  54.4 & 0.905 & 39.9 \\
+S9       & -48.65 & 0.8  &  26.4 & 0.919 & 43.6 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 2 under the objective of minimizing harvest area.}
+\label{tab:KPIs_min_ha_site2}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Harvest\\Area\\(k ha)} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & 60.74  & -30.67 & 7.8  & 265.6 & 0.893 & 27.3 \\
+S0       & --     & -49.43 & --   & --    & 0.929 & 48.8 \\
+S1       & 52.60  & -32.93 & 7.0  & 237.7 & 0.894 & 28.7 \\
+S2       & 44.81  & -35.23 & 6.2  & 211.9 & 0.889 & 31.0 \\
+S3       & 37.41  & -37.36 & 5.4  & 185.0 & 0.888 & 33.4 \\
+S4       & 30.46  & -39.35 & 4.7  & 161.2 & 0.885 & 35.1 \\
+S5       & 23.93  & -41.38 & 3.9  & 131.9 & 0.884 & 37.9 \\
+S6       & 17.91  & -43.11 & 3.1  & 105.5 & 0.888 & 40.8 \\
+S7       & 12.41  & -44.77 & 2.3  & 79.1  & 0.893 & 43.1 \\
+S8       & 7.48   & -46.46 & 1.5  & 52.8  & 0.899 & 45.5 \\
+S9       & 3.19   & -48.02 & 0.8  & 26.6  & 0.914 & 47.2 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.5.pdf} 
+    \caption{Comparison of net emissions across different scenarios and planning objectives in the forest lands surrounding Mining site 2.}
+    \label{fig:Fig.A.5}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.6.pdf} 
+    \caption{Comparison of net emissions across different scenarios and planning objectives in the forest lands surrounding Mining Site 2 over a 100-year planning horizon.}
+    \label{fig:Fig.A.6}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.7.pdf} 
+    \caption{Comparison of old growth attributes across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 2.}
+    \label{fig:Fig.A.7}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.8.pdf} 
+    \caption{Comparison of tree species diversity across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 2.}
+    \label{fig:Fig.A.8}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.9.pdf} 
+    \caption{Comparison of revenue across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 2.}
+    \label{fig:Fig.A.9}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.A.10.pdf} 
+    \caption{Comparison of number of jobs across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 2.}
+    \label{fig:Fig.A.10}    
+\end{figure}
+
+\newpage
+\section{Results of Mining Site 3}
+\label{sec:appendix2}
+\renewcommand{\thetable}{B.\arabic{table}} % Set table numbering in the format A.1, A.2, etc.
+\setcounter{table}{0} % Reset the table counter for the appendix section
+\setcounter{figure}{0} % Reset the table counter for the appendix section
+
+Here, we present the detailed results from running all defined scenarios under various objectives for Mining Site 3.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.1.pdf} 
+    \caption{Comparison of forest management outcomes in the forest lands surrounding Mining Site 3: Baseline vs. S0 across four objectives.}
+    \label{fig:Fig.B.1}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.2.pdf} 
+    \caption{Comparison of retained tree species under four management objectives and the no-harvest condition in forest lands surrounding Mining Site 3 (baseline scenario)}
+    \label{fig:Fig.B.2}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.3.pdf} 
+    \caption{Comparison of forest management outcomes in the forest lands surrounding Mining Site 3: Baseline vs. Alternative scenarios (S0 to S9) across four objectives}
+    \label{fig:Fig.B.3}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.4.pdf} 
+    \caption{Comparison of harvesting scenarios across KPIs under different planning objectives in the forest lands surrounding Mining Site 3.}
+    \label{fig:Fig.B.4}    
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 3 under the objective of maximizing harvest volume.}
+\label{tab:KPIs_max_hv_site3}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Harvest\\Volume\\(Mm\textsuperscript{3})} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & 11.21 & -46.08 & 11.9 & 404.2 & 0.780 & 100.4 \\
+S0       & 25.00 & -20.55 & 26.4 & 901.1 & 0.730 &  47.2 \\
+S1       & 10.09 & -50.23 & 10.7 & 363.8 & 0.777 & 104.5 \\
+S2       &  8.97 & -52.65 &  9.5 & 323.4 & 0.783 & 106.8 \\
+S3       &  7.85 & -56.56 &  8.3 & 282.9 & 0.785 & 111.0 \\
+S4       &  6.73 & -61.57 &  7.1 & 242.5 & 0.779 & 114.1 \\
+S5       &  5.61 & -64.19 &  5.9 & 202.1 & 0.771 & 115.2 \\
+S6       &  4.48 & -68.33 &  4.7 & 161.7 & 0.773 & 119.9 \\
+S7       &  3.36 & -71.72 &  3.6 & 121.3 & 0.781 & 124.7 \\
+S8       &  2.24 & -76.11 &  2.4 &  80.8 & 0.780 & 128.3 \\
+S9       &  1.12 & -78.93 &  1.2 &  40.4 & 0.799 & 139.2 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 3 under the objective of maximizing carbon stock.}
+\label{tab:KPIs_max_cs_site3}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Carbon\\Stock\\(MtC)} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & 69.02 & -61.35 & 10.8 & 369.4 & 0.770 & 101.9 \\
+S0       & 72.96 & -81.55 & --   & --    & 0.812 & 150.2 \\
+S1       & 69.49 & -63.71 & 9.7  & 332.5 & 0.776 & 107.0 \\
+S2       & 69.95 & -66.06 & 8.7  & 295.5 & 0.782 & 112.3 \\
+S3       & 70.41 & -68.41 & 7.6  & 258.6 & 0.784 & 117.1 \\
+S4       & 70.85 & -70.66 & 6.5  & 221.6 & 0.785 & 121.9 \\
+S5       & 71.29 & -72.75 & 5.4  & 184.7 & 0.785 & 126.7 \\
+S6       & 71.71 & -74.81 & 4.3  & 147.8 & 0.789 & 132.1 \\
+S7       & 72.11 & -76.81 & 3.2  & 110.8 & 0.792 & 137.5 \\
+S8       & 72.48 & -78.79 & 2.2  & 73.9  & 0.793 & 141.7 \\
+S9       & 72.78 & -80.47 & 1.1  & 36.9  & 0.804 & 146.2 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 3 under the objective of minimizing net emissions.}
+\label{tab:KPIs_min_em_site3}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & -62.35 & 10.8 & 369.4 & 0.721 & 76.6 \\
+S0       & -81.52 & 0.04 & 1.4   & 0.812 & 150.0 \\
+S1       & -64.60 & 9.7  & 332.5 & 0.743 & 85.2 \\
+S2       & -66.80 & 8.7  & 295.5 & 0.751 & 92.8 \\
+S3       & -68.91 & 7.6  & 258.6 & 0.754 & 99.5 \\
+S4       & -70.96 & 6.5  & 221.6 & 0.754 & 104.1 \\
+S5       & -72.96 & 5.4  & 184.7 & 0.751 & 111.3 \\
+S6       & -75.04 & 4.3  & 147.8 & 0.769 & 121.1 \\
+S7       & -77.01 & 3.2  & 110.8 & 0.783 & 130.6 \\
+S8       & -78.90 & 2.2  & 73.9  & 0.792 & 138.7 \\
+S9       & -80.49 & 1.1  & 36.9  & 0.801 & 145.0 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of KPIs across harvesting scenarios for the forest lands surrounding Mining Site 3 under the objective of minimizing harvest area.}
+\label{tab:KPIs_min_ha_site3}
+\begin{adjustbox}{width=\textwidth}
+{\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\makecell[l]{Scenario} & 
+\makecell[r]{Harvest\\Area\\(k ha)} & 
+\makecell[r]{Net\\Emissions\\(MtCO\textsubscript{2}e)} & 
+\makecell[r]{Social\\Indicator\\(k jobs)} & 
+\makecell[r]{Economic\\Indicator\\(\$M)} & 
+\makecell[r]{Species\\Indicator} & 
+\makecell[r]{Old Growth\\(k ha)} \\
+\midrule
+Baseline & 59.13  & -60.13 & 10.8 & 369.4 & 0.851 & 111.3 \\
+S0       & --     & -81.55 & --   & --    & 0.812 & 150.2 \\
+S1       & 52.32  & -62.49 & 9.7  & 332.5 & 0.846 & 116.2 \\
+S2       & 45.73  & -64.83 & 8.7  & 295.5 & 0.844 & 119.1 \\
+S3       & 39.33  & -67.15 & 7.6  & 258.6 & 0.837 & 122.5 \\
+S4       & 33.09  & -69.38 & 6.5  & 221.6 & 0.834 & 126.5 \\
+S5       & 27.02  & -71.59 & 5.4  & 185.8 & 0.828 & 129.8 \\
+S6       & 21.15  & -73.78 & 4.3  & 148.2 & 0.823 & 133.7 \\
+S7       & 15.50  & -75.96 & 3.3  & 111.3 & 0.818 & 138.6 \\
+S8       & 10.02  & -77.71 & 2.2  & 74.1  & 0.818 & 142.0 \\
+S9       & 4.76   & -79.63 & 1.1  & 37.2  & 0.816 & 146.7 \\
+\bottomrule
+\end{tabular}
+}
+\end{adjustbox}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.5.pdf} 
+    \caption{Comparison of net emissions across different scenarios and planning objectives in the forest lands surrounding Mining site 3.}
+    \label{fig:Fig.B.5}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.6.pdf} 
+    \caption{Comparison of net emissions across different scenarios and planning objectives in the forest lands surrounding Mining Site 3 over a 100-year planning horizon.}
+    \label{fig:Fig.B.6}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.7.pdf} 
+    \caption{Comparison of old growth attributes across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 3.}
+    \label{fig:Fig.B.7}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.8.pdf} 
+    \caption{Comparison of tree species diversity across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 3.}
+    \label{fig:Fig.B.8}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.9.pdf} 
+    \caption{Comparison of revenue across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 3.}
+    \label{fig:Fig.B.9}    
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Fig.B.10.pdf} 
+    \caption{Comparison of number of jobs across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 3.}
+    \label{fig:Fig.B.10}    
+\end{figure}
+
+\end{document}
+\endinput
