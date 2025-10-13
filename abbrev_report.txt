@@ -1,0 +1,557 @@
+Abbreviation report
+===================
+Summary:
+  replaced: 2
+  skipped: 63
+
+Entry: Liu2023
+  Action: skipped
+  Original: For.
+  Updated:  For.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+
+Entry: Thrippleton2021
+  Action: skipped
+  Original: Front. For. Glob. Chang.
+  Updated:  Front. For. Glob. Chang.
+  Notes:
+    - Token not in LTWA abbreviations: 'Front.'
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Glob.'
+    - Token not in LTWA abbreviations: 'Chang.'
+
+Entry: Nguyen2023
+  Action: skipped
+  Original: Environ. Pollut.
+  Updated:  Environ. Pollut.
+  Notes:
+    - Token not in LTWA abbreviations: 'Environ.'
+    - Token not in LTWA abbreviations: 'Pollut.'
+
+Entry: Diaz2009
+  Action: skipped
+  Original: Curr. Opin. Environ. Sustain.
+  Updated:  Curr. Opin. Environ. Sustain.
+  Notes:
+    - Token not in LTWA abbreviations: 'Curr.'
+    - Token not in LTWA abbreviations: 'Opin.'
+    - Token not in LTWA abbreviations: 'Environ.'
+    - Token not in LTWA abbreviations: 'Sustain.'
+
+Entry: Fox2020
+  Action: skipped
+  Original: Energ.
+  Updated:  Energ.
+  Notes:
+    - Token not in LTWA abbreviations: 'Energ.'
+
+Entry: Ptichnikov2023
+  Action: skipped
+  Original: Reg. Res. Russ.
+  Updated:  Reg. Res. Russ.
+  Notes:
+    - Token not in LTWA abbreviations: 'Res.'
+    - Token not in LTWA abbreviations: 'Russ.'
+
+Entry: Liao2022
+  Action: skipped
+  Original: Int. J. Environ. Res. Public. Health
+  Updated:  Int. J. Environ. Res. Public. Health
+  Notes:
+    - Token not in LTWA abbreviations: 'Int.'
+    - Token not in LTWA abbreviations: 'J.'
+    - Token not in LTWA abbreviations: 'Environ.'
+    - Token not in LTWA abbreviations: 'Res.'
+    - Token not in LTWA abbreviations: 'Public.'
+    - Non-abbreviated token in abbreviated title: 'Health'
+
+Entry: Perissi2025
+  Action: skipped
+  Original: Environ. Manage.
+  Updated:  Environ. Manage.
+  Notes:
+    - Token not in LTWA abbreviations: 'Environ.'
+    - Token not in LTWA abbreviations: 'Manage.'
+
+Entry: Liu2023
+  Action: skipped
+  Original: Int J Greenh Gas Control.
+  Updated:  Int J Greenh Gas Control.
+  Notes:
+    - Word not found in LTWA: 'Int' (kept as-is)
+    - Word not found in LTWA: 'J' (kept as-is)
+    - Word not found in LTWA: 'Greenh' (kept as-is)
+    - Word not found in LTWA: 'Gas' (kept as-is)
+
+Entry: Rumsa2025
+  Action: skipped
+  Original: Environ. Impact Assess. Rev.
+  Updated:  Environ. Impact Assess. Rev.
+  Notes:
+    - Token not in LTWA abbreviations: 'Environ.'
+    - Non-abbreviated token in abbreviated title: 'Impact'
+    - Token not in LTWA abbreviations: 'Assess.'
+    - Token not in LTWA abbreviations: 'Rev.'
+
+Entry: Seddon2022
+  Action: replaced
+  Original: Science
+  Updated:  Science
+  Notes:
+    - via json mapping
+
+Entry: Mo2023
+  Action: replaced
+  Original: Nature
+  Updated:  Nature
+  Notes:
+    - via json mapping
+
+Entry: Griscom2017
+  Action: skipped
+  Original: Proc. Natl. Acad. Sci. U.S.A.
+  Updated:  Proc. Natl. Acad. Sci. U.S.A.
+  Notes:
+    - Token not in LTWA abbreviations: 'Proc.'
+    - Token not in LTWA abbreviations: 'Natl.'
+    - Token not in LTWA abbreviations: 'Acad.'
+    - Token not in LTWA abbreviations: 'Sci.'
+    - Token not in LTWA abbreviations: 'U.'
+    - Token not in LTWA abbreviations: 'S.'
+    - Token not in LTWA abbreviations: 'A.'
+
+Entry: Fargione2018
+  Action: skipped
+  Original: Sci. Adv.
+  Updated:  Sci. Adv.
+  Notes:
+    - Token not in LTWA abbreviations: 'Sci.'
+    - Token not in LTWA abbreviations: 'Adv.'
+
+Entry: Fargione2018
+  Action: skipped
+  Original: Sci. Adv.
+  Updated:  Sci. Adv.
+  Notes:
+    - Token not in LTWA abbreviations: 'Sci.'
+    - Token not in LTWA abbreviations: 'Adv.'
+
+Entry: Hiltunen2021
+  Action: skipped
+  Original: Biomass Bioenergy
+  Updated:  Biomass Bioenergy
+  Notes:
+    - No LTWA abbreviation for word: 'Biomass' (kept as-is)
+    - Word not found in LTWA: 'Bioenergy' (kept as-is)
+
+Entry: Issa2023
+  Action: skipped
+  Original: Energ.
+  Updated:  Energ.
+  Notes:
+    - Token not in LTWA abbreviations: 'Energ.'
+
+Entry: Valipour2021
+  Action: skipped
+  Original: Sci. Total Environ.
+  Updated:  Sci. Total Environ.
+  Notes:
+    - Token not in LTWA abbreviations: 'Sci.'
+    - Non-abbreviated token in abbreviated title: 'Total'
+    - Token not in LTWA abbreviations: 'Environ.'
+
+Entry: Wang2023
+  Action: skipped
+  Original: For.
+  Updated:  For.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+
+Entry: Johnson1977
+  Action: skipped
+  Original: For. Sci.
+  Updated:  For. Sci.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Sci.'
+
+Entry: MacKenzie2018
+  Action: skipped
+  Original: Phytocoenologia
+  Updated:  Phytocoenologia
+  Notes:
+    - Word not found in LTWA: 'Phytocoenologia' (kept as-is)
+
+Entry: Feijoo2025
+  Action: skipped
+  Original: Renew Sustain. Energy Rev
+  Updated:  Renew Sustain. Energy Rev
+  Notes:
+    - Word not found in LTWA: 'Renew' (kept as-is)
+    - No LTWA abbreviation for word: 'Energy' (kept as-is)
+    - Word not found in LTWA: 'Rev' (kept as-is)
+
+Entry: Bellamy2020
+  Action: skipped
+  Original: Nat. Clim. Chang.
+  Updated:  Nat. Clim. Chang.
+  Notes:
+    - Token not in LTWA abbreviations: 'Clim.'
+    - Token not in LTWA abbreviations: 'Chang.'
+
+Entry: Spies2019
+  Action: skipped
+  Original: Biol. Conserv.
+  Updated:  Biol. Conserv.
+  Notes:
+    - Token not in LTWA abbreviations: 'Biol.'
+    - Token not in LTWA abbreviations: 'Conserv.'
+
+Entry: CanadianMiningJournal2021
+  Action: skipped
+  Original: Can. Min. J.
+  Updated:  Can. Min. J.
+  Notes:
+    - Token not in LTWA abbreviations: 'Min.'
+    - Token not in LTWA abbreviations: 'J.'
+
+Entry: Seely2002
+  Action: skipped
+  Original: For. Ecol. Manage.
+  Updated:  For. Ecol. Manage.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Ecol.'
+    - Token not in LTWA abbreviations: 'Manage.'
+
+Entry: Lee2024
+  Action: skipped
+  Original: J. Cleaner Prod.
+  Updated:  J. Cleaner Prod.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Non-abbreviated token in abbreviated title: 'Cleaner'
+
+Entry: Rissman2020
+  Action: skipped
+  Original: Appl Energy
+  Updated:  Appl Energy
+  Notes:
+    - Word not found in LTWA: 'Appl' (kept as-is)
+    - No LTWA abbreviation for word: 'Energy' (kept as-is)
+
+Entry: Figueiredo2023
+  Action: skipped
+  Original: Clean. Energy Syst.
+  Updated:  Clean. Energy Syst.
+  Notes:
+    - Token not in LTWA abbreviations: 'Clean.'
+    - Non-abbreviated token in abbreviated title: 'Energy'
+    - Token not in LTWA abbreviations: 'Syst.'
+
+Entry: Song2019
+  Action: skipped
+  Original: Energy
+  Updated:  Energy
+  Notes:
+    - No LTWA abbreviation for word: 'Energy' (kept as-is)
+
+Entry: Wang2018
+  Action: skipped
+  Original: Renew Sustain. Energy Rev
+  Updated:  Renew Sustain. Energy Rev
+  Notes:
+    - Word not found in LTWA: 'Renew' (kept as-is)
+    - No LTWA abbreviation for word: 'Energy' (kept as-is)
+    - Word not found in LTWA: 'Rev' (kept as-is)
+
+Entry: essd-16-3601-2024
+  Action: skipped
+  Original: Earth Syst Sci Data
+  Updated:  Earth Syst Sci Data
+  Notes:
+    - Word not found in LTWA: 'Earth' (kept as-is)
+    - Word not found in LTWA: 'Syst' (kept as-is)
+    - Word not found in LTWA: 'Sci' (kept as-is)
+    - Word not found in LTWA: 'Data' (kept as-is)
+
+Entry: LEALFILHO2018589
+  Action: skipped
+  Original: J. Cleaner Prod.
+  Updated:  J. Cleaner Prod.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Non-abbreviated token in abbreviated title: 'Cleaner'
+
+Entry: wang2024critical
+  Action: skipped
+  Original: J. Cleaner Prod.
+  Updated:  J. Cleaner Prod.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Non-abbreviated token in abbreviated title: 'Cleaner'
+
+Entry: Hisano2024functional
+  Action: skipped
+  Original: Sci. Adv.
+  Updated:  Sci. Adv.
+  Notes:
+    - Token not in LTWA abbreviations: 'Sci.'
+    - Token not in LTWA abbreviations: 'Adv.'
+
+Entry: Kabisch2016nature
+  Action: skipped
+  Original: Ecol. Soc.
+  Updated:  Ecol. Soc.
+  Notes:
+    - Token not in LTWA abbreviations: 'Ecol.'
+    - Token not in LTWA abbreviations: 'Soc.'
+
+Entry: Rey2024forest
+  Action: skipped
+  Original: Nat.-Based Solut.
+  Updated:  Nat.-Based Solut.
+  Notes:
+    - Non-abbreviated token in abbreviated title: 'Based'
+    - Token not in LTWA abbreviations: 'Solut.'
+
+Entry: sowinska2022nature
+  Action: skipped
+  Original: Nat.-Based Solut.
+  Updated:  Nat.-Based Solut.
+  Notes:
+    - Non-abbreviated token in abbreviated title: 'Based'
+    - Token not in LTWA abbreviations: 'Solut.'
+
+Entry: drever2021natural
+  Action: skipped
+  Original: Sci. Adv.
+  Updated:  Sci. Adv.
+  Notes:
+    - Token not in LTWA abbreviations: 'Sci.'
+    - Token not in LTWA abbreviations: 'Adv.'
+
+Entry: Waring2020
+  Action: skipped
+  Original: Front. For. Glob. Chang.
+  Updated:  Front. For. Glob. Chang.
+  Notes:
+    - Token not in LTWA abbreviations: 'Front.'
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Glob.'
+    - Token not in LTWA abbreviations: 'Chang.'
+
+Entry: Smyth2014Quantifying
+  Action: skipped
+  Original: Biogeosciences
+  Updated:  Biogeosciences
+  Notes:
+    - Word not found in LTWA: 'Biogeosciences' (kept as-is)
+
+Entry: Bettinger2013Forest
+  Action: skipped
+  Original: For. Sci. Technol.
+  Updated:  For. Sci. Technol.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Sci.'
+    - Token not in LTWA abbreviations: 'Technol.'
+
+Entry: papa2023modeling
+  Action: skipped
+  Original: Front. For. Glob. Chang.
+  Updated:  Front. For. Glob. Chang.
+  Notes:
+    - Token not in LTWA abbreviations: 'Front.'
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Glob.'
+    - Token not in LTWA abbreviations: 'Chang.'
+
+Entry: Johnston2017Managing
+  Action: skipped
+  Original: Ecol. Econ.
+  Updated:  Ecol. Econ.
+  Notes:
+    - Token not in LTWA abbreviations: 'Ecol.'
+    - Token not in LTWA abbreviations: 'Econ.'
+
+Entry: MacDicken2015Global
+  Action: skipped
+  Original: For. Ecol. Manage.
+  Updated:  For. Ecol. Manage.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Ecol.'
+    - Token not in LTWA abbreviations: 'Manage.'
+
+Entry: Smith2022Long
+  Action: skipped
+  Original: Commun Earth \& Env
+  Updated:  Commun Earth \& Env
+  Notes:
+    - Word not found in LTWA: 'Commun' (kept as-is)
+    - Word not found in LTWA: 'Earth' (kept as-is)
+    - Word not found in LTWA: 'Env' (kept as-is)
+
+Entry: Flotemersch2016Watershed
+  Action: skipped
+  Original: River Res. Appl.
+  Updated:  River Res. Appl.
+  Notes:
+    - Non-abbreviated token in abbreviated title: 'River'
+    - Token not in LTWA abbreviations: 'Res.'
+
+Entry: Worrall2009Towards
+  Action: skipped
+  Original: J. Cleaner Prod.
+  Updated:  J. Cleaner Prod.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Non-abbreviated token in abbreviated title: 'Cleaner'
+
+Entry: Taylor2021Managing
+  Action: skipped
+  Original: Clim. Risk Manage.
+  Updated:  Clim. Risk Manage.
+  Notes:
+    - Token not in LTWA abbreviations: 'Clim.'
+    - Non-abbreviated token in abbreviated title: 'Risk'
+    - Token not in LTWA abbreviations: 'Manage.'
+
+Entry: paradis2018bi
+  Action: skipped
+  Original: Can. J. For. Res.
+  Updated:  Can. J. For. Res.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Res.'
+
+Entry: Jowitt2020
+  Action: skipped
+  Original: Commun Earth \& Env
+  Updated:  Commun Earth \& Env
+  Notes:
+    - Word not found in LTWA: 'Commun' (kept as-is)
+    - Word not found in LTWA: 'Earth' (kept as-is)
+    - Word not found in LTWA: 'Env' (kept as-is)
+
+Entry: KURZ2009480
+  Action: skipped
+  Original: Ecol. Modell.
+  Updated:  Ecol. Modell.
+  Notes:
+    - Token not in LTWA abbreviations: 'Ecol.'
+    - Token not in LTWA abbreviations: 'Modell.'
+
+Entry: geng2017review
+  Action: skipped
+  Original: For. Policy Econ.
+  Updated:  For. Policy Econ.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+    - Non-abbreviated token in abbreviated title: 'Policy'
+    - Token not in LTWA abbreviations: 'Econ.'
+
+Entry: braun2016apparent
+  Action: skipped
+  Original: For. Policy Econ.
+  Updated:  For. Policy Econ.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+    - Non-abbreviated token in abbreviated title: 'Policy'
+    - Token not in LTWA abbreviations: 'Econ.'
+
+Entry: neilson2008optimal
+  Action: skipped
+  Original: Can. J. For. Res.
+  Updated:  Can. J. For. Res.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Res.'
+
+Entry: JEM2007
+  Action: skipped
+  Original: J. Ecosyst. Manag.
+  Updated:  J. Ecosyst. Manag.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Token not in LTWA abbreviations: 'Ecosyst.'
+    - Token not in LTWA abbreviations: 'Manag.'
+
+Entry: Wu2017
+  Action: skipped
+  Original: J. Geog. Sci.
+  Updated:  J. Geog. Sci.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Token not in LTWA abbreviations: 'Geog.'
+    - Token not in LTWA abbreviations: 'Sci.'
+
+Entry: Boisvenue2022
+  Action: skipped
+  Original: Environ. Res. Lett.
+  Updated:  Environ. Res. Lett.
+  Notes:
+    - Token not in LTWA abbreviations: 'Environ.'
+    - Token not in LTWA abbreviations: 'Res.'
+    - Token not in LTWA abbreviations: 'Lett.'
+
+Entry: Diaz2006
+  Action: skipped
+  Original: Plos Biol
+  Updated:  Plos Biol
+  Notes:
+    - Word not found in LTWA: 'Plos' (kept as-is)
+    - Word not found in LTWA: 'Biol' (kept as-is)
+
+Entry: McGarvey2015
+  Action: skipped
+  Original: Ecol.
+  Updated:  Ecol.
+  Notes:
+    - Token not in LTWA abbreviations: 'Ecol.'
+
+Entry: ezquerro2016operational
+  Action: skipped
+  Original: For.
+  Updated:  For.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+
+Entry: Brunet-Navarro2016
+  Action: skipped
+  Original: Glob. Chang. Biol
+  Updated:  Glob. Chang. Biol
+  Notes:
+    - Token not in LTWA abbreviations: 'Glob.'
+    - Token not in LTWA abbreviations: 'Chang.'
+    - Non-abbreviated token in abbreviated title: 'Biol'
+
+Entry: Thom2019
+  Action: skipped
+  Original: For. Ecol. Manage.
+  Updated:  For. Ecol. Manage.
+  Notes:
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Ecol.'
+    - Token not in LTWA abbreviations: 'Manage.'
+
+Entry: paradis2013risk
+  Action: skipped
+  Original: Can. J. For. Res.
+  Updated:  Can. J. For. Res.
+  Notes:
+    - Token not in LTWA abbreviations: 'J.'
+    - Token not in LTWA abbreviations: 'For.'
+    - Token not in LTWA abbreviations: 'Res.'
+
+Entry: head2020dynamic
+  Action: skipped
+  Original: Build. Environ.
+  Updated:  Build. Environ.
+  Notes:
+    - Token not in LTWA abbreviations: 'Build.'
+    - Token not in LTWA abbreviations: 'Environ.'
