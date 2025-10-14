@@ -21,20 +21,20 @@
 % Graphical abstract (for submission; image also uploaded separately)
 \begin{graphicalabstract}
 \centering
-\includegraphics[width=\textwidth]{grabs.pdf}
+\includegraphics[width=\textwidth]{nbds_dss_manuscript_graphical-abstract.pdf}
 \end{graphicalabstract}
 
 % Research highlights (3–5 concise bullet points)
 \begin{highlights}
-\item Prototype open-source DSS framework models forest management near mining sites in British Columbia.
-\item Demonstrates use of public geospatial and inventory data to simulate harvest and carbon outcomes.
-\item Compares objectives: max volume, min area, max carbon, min net emissions.
-\item Explores trade-offs across environmental, economic, and social indicators.
-\item Aims to support decarbonization planning; explores emissions reduction potential via forest strategies.
+\item Prototype DSS framework for forest management near mining sites
+\item Uses public geospatial and inventory data for harvest and carbon
+\item Compares objectives: max volume, min area, max carbon, min net
+\item Explores trade-offs across environmental, economic, and social
+\item Supports decarbonization planning; explores emissions reduction
 \end{highlights}
 \begin{frontmatter}
 
-\title{Developing a prototype decision support framework to assess forest management scenarios as a nature-based decarbonization solution: A case study in British Columbia, Canada}
+\title{Developing a prototype decision support framework to assess forest management scenarios as a nature-based decarbonization solution for the mining sector: A case study in British Columbia, Canada}
 
 \author{Elaheh Ghasemi}
 \author{Kathleen Coupland}
@@ -59,7 +59,7 @@ The study does not prescribe specific harvesting strategies; rather, the finding
 \modulolinenumbers[5]
 
 \begin{keyword}
-Forest management \sep Nature-based decarbonization \sep Decision support framework \sep Prototype \sep Forest harvesting \sep Sustainability \sep Ecosystem service \sep Mining industry \sep Carbon neutrality
+Decision support framework \sep Nature-based decarbonization \sep Forest management \sep Mining sector \sep Carbon accounting \sep Prototype
 \end{keyword}
 
 \end{frontmatter}
@@ -678,6 +678,9 @@ While the DSS facilitates assessment of different forest management scenarios an
 \label{sec:Declaration of Competing Interest}
 The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this article.
 
+\section*{Use of AI and AI-assisted technologies in scientific writing}
+In the final stage of manuscript preparation, the authors used a generative AI tool to assist with language polishing and to verify that the submission package conformed to the journal's Guide for Authors (e.g., highlights length/format and presence of required declarations). No scientific analysis, results generation, or novel content creation was performed by AI. The authors take full responsibility for the content of this work.
+
 \section*{Funding}
 This work was supported by Mitacs through the Accelerate Program in partnership with Newmont Goldcorp Inc. (Award IT32088), by the World Economic Forum through the Hoffmann Fellowship program (Award AWD-028246), and by the Bradshaw Research Initiative in Minerals and Mining (BRIMM).
 
@@ -696,6 +699,12 @@ The data and code supporting the findings of this study are available in \citet{
 \appendix
 
 \newpage
+% Avoid duplicate hyperref anchors for figures when counters reset in appendices
+\makeatletter
+\renewcommand\theHfigure{\thesection.\arabic{figure}}
+\renewcommand\theHtable{\thesection.\arabic{table}}
+\makeatother
+\phantom{}
 \section{Results of Mining Site 2}
 \label{sec:appendix1}
 \renewcommand{\thetable}{A.\arabic{table}}
