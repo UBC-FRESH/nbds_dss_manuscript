@@ -33,3 +33,5 @@ _minted-*/
 !manuscript.pdf
 
 scratch
+
+.venv
