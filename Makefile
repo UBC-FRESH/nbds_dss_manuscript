@@ -7,23 +7,31 @@ BIB      := references.bib
 REPORT   := abbrev_report.txt
 
 # Tools
-LATEXMK  := latexmk
-PYTHON   := python
-ABBRV    := scripts/abbreviate_journals.py
+LATEXMK        := latexmk
+VENV_DIR       := .venv
+PYTHON         := $(VENV_DIR)/bin/python
+PIP            := $(PYTHON) -m pip
+BIBTEX_UTILS   := $(VENV_DIR)/bin/bibtex-utils
 
-.PHONY: all abbreviate pdf clean distclean watch
+.PHONY: all abbreviate pdf clean distclean watch setup
 .DEFAULT_GOAL := all
 
 # Build everything: abbreviate journals, then compile PDF
 all: abbreviate pdf
 
+# Ensure submodule and editable install are ready
+setup:
+	git submodule update --init --recursive bibtex-utils
+	test -d $(VENV_DIR) || python -m venv $(VENV_DIR)
+	$(PIP) install --upgrade pip
+	$(PIP) install --editable ./bibtex-utils
+
 # Abbreviate journal names in-place using LTWA + JSON mapping (drop stopwords)
-abbreviate: $(BIB) $(ABBRV)
-	$(PYTHON) $(ABBRV) \
+abbreviate: setup $(BIB)
+	$(BIBTEX_UTILS) abbreviate-with-ltwa \
 		--bib $(BIB) \
 		--in-place \
-		--report $(REPORT) \
-		--drop-stopwords
+		--report $(REPORT)
 
 # Compile the document
 pdf: $(PDF)
@@ -42,4 +50,3 @@ clean:
 # Clean all generated files (including PDF and report)
 distclean: clean
 	rm -f $(PDF) $(REPORT)
-
