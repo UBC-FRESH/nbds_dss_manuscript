@@ -13,7 +13,7 @@ The manuscript has been prepared for submission to *Cleaner Environmental System
 - `nbds_dss_manuscript_graphical-abstract.pdf` – graphical abstract used for EarthArXiv and CES
 - `Fig.*`, `Fig.A.*`, `Fig.B.*` – figure assets referenced in the manuscript
 - `cover_letter-cesys.tex` – submission cover letter for *Cleaner Environmental Systems*
-- `Makefile` – build targets for compiling the manuscript (`make pdf`)
+- `Makefile` – build targets for abbreviating references and compiling the manuscript
 
 ## Build instructions
 
@@ -21,14 +21,36 @@ Requirements:
 
 - TeX Live 2023 (or compatible LaTeX distribution)
 - `latexmk`
+- Python 3.10+ (virtual environment support)
+- GNU Make
+- Git (for the `bibtex-utils` submodule)
 
-Build the manuscript PDF:
+Regenerate the abbreviated bibliography and compile the manuscript:
+
+```bash
+make all
+```
+
+This target will:
+
+1. Update the `bibtex-utils` submodule.
+2. Create `.venv` (if absent) and install the CLI in editable mode.
+3. Run `bibtex-utils abbreviate-with-ltwa --in-place` on `references.bib`.
+4. Compile `manuscript.pdf` with `latexmk`.
+
+You can run individual steps as needed:
+
+- `make abbreviate` – refresh `references.bib` using the Typer CLI.
+- `make pdf` – build only the LaTeX document (assumes references are already updated).
+- `make distclean` – remove generated PDF and abbreviation report.
+
+Direct `latexmk` commands remain useful for quick iterations, e.g.:
 
 ```bash
 latexmk -pdf manuscript.tex
 ```
 
-This produces `manuscript.pdf` with the EarthArXiv cover page followed by the CES-formatted article. Clean auxiliary files with:
+Clean auxiliary files with:
 
 ```bash
 latexmk -C
