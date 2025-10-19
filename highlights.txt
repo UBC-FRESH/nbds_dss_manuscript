@@ -1,0 +1,5 @@
+Prototype DSS framework for forest management near mining sites
+Uses public geospatial and inventory data for harvest and carbon
+Compares objectives: max volume, min area, max carbon, min net
+Explores trade-offs across environmental, economic, and social
+Supports decarbonization planning; explores emissions reduction

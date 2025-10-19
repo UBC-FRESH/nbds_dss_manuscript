@@ -18,7 +18,7 @@
 \hypersetup{
   pdftitle={Developing a prototype decision support framework to assess forest management scenarios as a nature-based decarbonization solution for the mining sector: A case study in British Columbia, Canada},
   pdfauthor={Elaheh Ghasemi, Kathleen Coupland, Salar Ghotb, Gregory Paradis},
-  pdfsubject={EarthArXiv preprint; submitted to Cleaner Environmental Systems},
+  pdfsubject={Submitted to Cleaner Environmental Systems},
   pdfkeywords={decision support, forest management, nature-based solutions, mining, carbon accounting, prototype}
 }
 
@@ -26,33 +26,6 @@
 \biboptions{sort&compress}
 
 \begin{document}
-
-% EarthArXiv-compliant cover page (page 1)
-\begin{titlepage}
-  \thispagestyle{empty}
-  \vspace*{2.5cm}
-  \begin{center}
-    {\LARGE\bfseries Developing a prototype decision support framework to assess forest management scenarios as a nature-based decarbonization solution for the mining sector: A case study in British Columbia, Canada\par}
-    \vspace{1.5cm}
-    {\large Elaheh Ghasemi, Kathleen Coupland, Salar Ghotb, and Gregory Paradis\\Faculty of Forestry, University of British Columbia, Canada\\Corresponding author: gregory.paradis@ubc.ca\\ORCID: \url{https://orcid.org/0000-0001-9618-8797}\par}
-    \vspace{1.5cm}
-    {\large\bfseries EarthArXiv Preprint Status\par}
-    \vspace{0.5cm}
-    {\normalsize This manuscript is a non\hyp peer\hyp reviewed preprint uploaded to EarthArXiv.\\
-    The work has been submitted to \textit{Cleaner Environmental Systems} for peer review.\\
-    Subsequent versions may differ. If accepted, the peer\hyp reviewed version will be available from the journal.\par}
-    \vspace{1.2cm}
-    {\normalsize Preprint DOI (reserved): \textit{to be assigned upon EarthArXiv submission}\par}
-    \vspace{0.8cm}
-    {\normalsize Date: \today\par}
-    \vspace{1.2cm}
-    {\normalsize Licensing: Authors intend to distribute this preprint under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.\par}
-  \end{center}
-  \vfill
-  % Optional social handles for promotion
-  % \noindent Mastodon: @handle@instance
-\end{titlepage}
-\setcounter{page}{2}
 
 % Graphical abstract (for submission; image also uploaded separately)
 \begin{graphicalabstract}
@@ -72,23 +45,25 @@
 
 \title{Developing a prototype decision support framework to assess forest management scenarios as a nature-based decarbonization solution for the mining sector: A case study in British Columbia, Canada}
 
-\author{Elaheh Ghasemi}
-\author{Kathleen Coupland}
-\author{Salar Ghotb}
-\author{Gregory Paradis\corref{cor1}}
+\author[1]{Elaheh Ghasemi}
+\ead{elaheh.ghasemi@ubc.ca}
+\author[1]{Kathleen Coupland}
+\ead{kathleen.coupland@ubc.ca}
+\author[1]{Salar Ghotb}
+\ead{salar.ghotb@ubc.ca}
+\author[1]{Gregory Paradis\corref{cor1}}
+\ead{gregory.paradis@ubc.ca}
 
-\address{University of British Columbia, Faculty of Forestry, Vancouver, V6T 1Z4, British Columbia, Canada}
+\address[1]{Faculty of Forestry, University of British Columbia, 2424 Main Mall, Vancouver, BC V6T 1Z4, Canada}
 
-
-\cortext[cor1]{Corresponding author. \\
-Email addresses: elaheh.ghasemi@ubc.ca (E. Ghasemi), kathleen.coupland@ubc.ca (K. Coupland), salar.ghotb@ubc.ca (S. Ghotb), gregory.paradis@ubc.ca (G. Paradis).}
+\cortext[cor1]{Corresponding author.}
 
 \begin{abstract}
-This study, realized in partnership with a leading global gold producer, explores how forest management nature-based solutions (NbS) can be integrated into decarbonization strategies to achieve carbon neutrality by 2050. NbS, including carbon sequestration in forests, are expected to play an important role in meeting decarbonization commitments in the mining sector. Our primary contribution is a prototype open-source decision support system (DSS) framework for modeling forest management scenarios using publicly available data and reproducible workflows. We demonstrate the framework on three distinct mining sites in British Columbia (BC), Canada, using geospatial data, forest inventory, and landscape-level models.
+This study, conducted with a leading gold producer, investigates how forest management nature-based solutions can support pathways to carbon neutrality by 2050. We present a prototype open-source decision support system (DSS) that assembles publicly available geospatial, inventory, and landscape modeling data to evaluate forest management scenarios around three British Columbia mining sites.
 
-The prototype compares a business-as-usual scenario with alternative harvesting scenarios to examine objectives such as maximizing harvest volume, minimizing harvested area, maximizing ecosystem carbon stocks, and minimizing net emissions. Key performance indicators (KPIs) are tracked to evaluate environmental, economic, and social aspects. The case study serves to illustrate that both the method and code implementation adapt readily to sites with different forest dynamics. While the current notebook-based interface is limited in usability, it supports a fully open, transparent, and reproducible analysis pipeline. We argue that further development of this approach is warranted to improve usability while retaining transparency and auditability.
+The framework compares business-as-usual harvesting with alternatives optimized to maximize harvest volume, minimize harvested area, maximize ecosystem carbon, or minimize net emissions. It tracks environmental, economic, and social key performance indicators and documents trade-offs among them. Although the current notebook interface is basic, the workflow delivers an open, transparent, and reproducible analysis pipeline that can be adapted to sites with contrasting forest dynamics.
 
-The study does not prescribe specific harvesting strategies; rather, the findings illustrate how forest management objectives influence outcomes across KPIs. Scenarios prioritizing higher harvest volumes yield greater economic and social benefits but often coincide with trade-offs in environmental indicators. Conversely, restricting harvesting can improve environmental indicators. While not production-ready, the prototype demonstrates promising attributes for nature-based decarbonization analyses and suggests a direction for further development and evaluation.
+Results show that objectives shape outcomes more strongly than harvest volume alone: strategies emphasizing carbon storage or emissions reduction improve ecosystem indicators but dampen revenue and employment, whereas volume-oriented harvesting boosts socioeconomic metrics with environmental costs. The prototype therefore helps identify thresholds where environmental gains begin to compromise economic viability and highlights priorities for sharpening the tool, including a more user-friendly interface and integration of additional silvicultural practices.
 \end{abstract}
 
 % Line numbers for review
@@ -103,9 +78,9 @@ Decision support framework \sep Nature-based decarbonization \sep Forest managem
 
 \section{Introduction}
 \label{sec:introduction}
-Climate change affects communities through changing weather patterns, causing frequent and severe natural disasters such as floods, hurricanes, and wildfires. Anthropogenic activities, identified as the main driver of climate change \citep{LEALFILHO2018589}, coupled with the rapid pace of urbanization and industrialization, have accelerated greenhouse gas (GHG) emissions, primarily carbon dioxide (CO\textsubscript{2}) \citep{Song2019}. In 2015, the Paris Agreement established global GHG targets, with the goal of limiting the increase in the average global temperature to less than 2°C above pre-industrial levels by 2050 \citep{Unfccc2015}. Despite this, it is unlikely most that countries can meet goals of Paris Agreement \citep{taylor2021managing}, making immediate decarbonization actions important \citep{wang2024critical}. Hard-to-abate industries such as mining, oil and gas contribute substantially to GHG emissions, accounting for almost 40\% of global CO\textsubscript{2} emissions \citep{gross2021challenge}.
+Climate change affects communities through changing weather patterns, causing frequent and severe natural disasters such as floods, hurricanes, and wildfires. Anthropogenic activities, identified as the main driver of climate change \citep{LEALFILHO2018589}, coupled with the rapid pace of urbanization and industrialization, have accelerated greenhouse gas (GHG) emissions, primarily carbon dioxide (CO\textsubscript{2}) \citep{Song2019}. In 2015, the Paris Agreement established global GHG targets, with the goal of limiting the increase in the average global temperature to less than 2°C above pre-industrial levels by 2050 \citep{Unfccc2015}. Despite this, many countries are unlikely to meet their Paris Agreement commitments \citep{taylor2021managing}, making immediate decarbonization actions important \citep{wang2024critical}. Hard-to-abate industries such as mining, oil and gas contribute substantially to GHG emissions, accounting for almost 40\% of global CO\textsubscript{2} emissions \citep{gross2021challenge}.
 
-The mining sector independently contributes approximately 2\%–3\% of total global emissions \citep{Bellois2022}. Mining operations contribute to GHG emissions due to their reliance on diesel-powered equipment \citep{Figueiredo2023} however, the mining is essential to supplying raw materials needed for energy, communication and transportation. In addition, the growing adoption of green technologies, such as electric vehicles and renewable energy, is expected to further increase the demand for mineral resources \citep{Jowitt2020, BRIMM2021}. 
+The mining sector independently contributes approximately 2\%–-3\% of total global emissions \citep{Bellois2022}. Mining operations contribute to GHG emissions due to their reliance on diesel-powered equipment \citep{Figueiredo2023} however, the mining is essential to supplying raw materials needed for energy, communication and transportation. In addition, the growing adoption of green technologies, such as electric vehicles and renewable energy, is expected to further increase the demand for mineral resources \citep{Jowitt2020, BRIMM2021}. 
 
 In light of the global transition toward decarbonization and net-zero emissions, the mining sector is under  pressure to align with Paris Agreement targets. Many leading mining companies have committed to achieving net-zero emissions by 2050, or sooner \citep{Legge2021}. However, achieving these targets will require transformative changes in current and future operations. \citet{Figueiredo2023} proposes that decarbonizing the mining sector over the next three decades will necessitate a fundamental shift in energy use, replacing fossil fuels with clean electricity and renewable energy sources. Although exploration of electrification solutions and the integration of renewable energy technologies is essential, especially in large-scale surface mining operations, there are challenges associated with these transitions \citep{Issa2023}. Although there are potential opportunities for adopting renewable energy there are also significant barriers, including high upfront costs and infrastructure limitations \citep{Issa2023}. \citet{Rumsa2025} reviewed global iron and steel decarbonization roadmaps and found that while near-zero emissions are theoretically achievable by 2050, the sector may fall short of net-zero targets by around 10\% due to barriers like limited resources, insufficient investment in new technologies, and gaps in policy frameworks. Of importance for this research is that these roadmaps focus narrowly on technological solutions while overlooking nature-based solutions (NbS). 
 
@@ -622,7 +597,7 @@ In contrast, under the objective of minimizing net emissions, only the baseline 
     \caption{Comparison of net emissions across different scenarios and planning objectives in the forest lands surrounding Mining Site 1 over a 100-year planning horizon.}
     \label{fig:Fig.8}    
 \end{figure}
-Figure \ref{fig:Fig.9} presents a comparative analysis of old growth forest area across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1. The results indicate a general increase in the the old growth area from Scenario S0 through S9 under all objectives. Notably, scenarios under minimizing harvest area and maximizing carbon stock tend to preserve more old growtharea relative to maximizing harvest volume objective and minimizing net emissions. However, the difference in old growth preservation decreases as the harvest intensity decreases from Scenario S1 to Scenario S9. The smallest old growth area is observed in Scenario S0, which focuses on maximizing harvest levels. 
+Figure \ref{fig:Fig.9} presents a comparative analysis of old growth forest area across harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1. The results indicate a general increase in the old growth area from Scenario S0 through S9 under all objectives. Notably, scenarios under minimizing harvest area and maximizing carbon stock tend to preserve more old growth area than the maximizing harvest volume objective and minimizing net emissions. However, the difference in old growth preservation decreases as the harvest intensity decreases from Scenario S1 to Scenario S9. The smallest old growth area is observed in Scenario S0, which focuses on maximizing harvest levels.
 
 Figure \ref{fig:Fig.10} presents a comparison of tree species diversity across various harvesting scenarios and planning objectives in the forest lands surrounding Mining Site 1. The values range from 0.7 to 0.77, indicating moderately high tree species diversity under all scenarios and objectives. Notably, there is no dramatic decline in diversity under any specific scenario or objective. Among the planning objectives, minimizing net emissions consistently results in the lowest diversity values. Overall, the differences in species diversity are more strongly influenced by the planning objectives than by the specific harvesting scenarios.
 
@@ -718,7 +693,7 @@ The authors declare that they have no known competing financial interests or per
 In the final stage of manuscript preparation, the authors used a generative AI tool to assist with language polishing and to verify that the submission package conformed to the journal's Guide for Authors (e.g., highlights length/format and presence of required declarations). No scientific analysis, results generation, or novel content creation was performed by AI. The authors take full responsibility for the content of this work.
 
 \section*{Funding}
-This work was supported by Mitacs through the Accelerate Program in partnership with Newmont Goldcorp Inc. (Award IT32088), by the World Economic Forum through the Hoffmann Fellowship program (Award AWD-028246), and by the Bradshaw Research Initiative in Minerals and Mining (BRIMM).
+This work was supported by Mitacs through the Accelerate Program in partnership with Newmont Goldcorp Inc. (grant IT32088), by the World Economic Forum through the Hoffmann Fellowship program (grant AWD-028246), and by the Bradshaw Research Initiative in Minerals and Mining (BRIMM).
 
 \section*{Acknowledgments}
 \label{sec:acknowledgments}

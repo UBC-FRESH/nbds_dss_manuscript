@@ -1,0 +1,440 @@
+Reference validation report (Crossref)
+
+Entry: Liu2023
+  DOI: 10.3390/f14071442
+  Crossref status: 200
+  Title match: yes
+
+Entry: Thrippleton2021
+  DOI: 10.3389/ffgc.2021.693020
+  Crossref status: 200
+  Title match: yes
+
+Entry: usdafs2005strategic
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: UNFCCC2015
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Nguyen2023
+  DOI: 10.1016/j.envpol.2023.122571
+  Crossref status: 200
+  Title match: yes
+
+Entry: Diaz2009
+  DOI: 10.1016/j.cosust.2009.08.001
+  Crossref status: 200
+  Title match: yes
+
+Entry: BRIMM2021
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Fox2020
+  DOI: 10.3390/en13236340
+  Crossref status: 200
+  Title match: yes
+
+Entry: Ke2024
+  DOI: 10.14288/1.0441338
+  Crossref status: 404
+
+Entry: Ptichnikov2023
+  DOI: 10.1134/S2079970523701022
+  Crossref status: 200
+  Title match: yes
+
+Entry: Liao2022
+  DOI: 10.3390/ijerph19074175
+  Crossref status: 200
+  Title match: yes
+
+Entry: IUCN2020
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Perissi2025
+  DOI: 10.1007/s00267-024-02107-9
+  Crossref status: 200
+  Title match: yes
+
+Entry: Paradis2018
+  DOI: 10.13140/RG.2.2.32706.48321
+  Crossref status: 404
+
+Entry: Liu2023
+  DOI: 10.1016/j.ijggc.2022.103814
+  Crossref status: 200
+  Title match: yes
+
+Entry: AmericanUniversity_NbS
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Raj2024
+  DOI: 10.1002/9781119910527.ch12
+  Crossref status: 200
+  Title match: yes
+
+Entry: Rumsa2025
+  DOI: 10.1016/j.eiar.2025.107807
+  Crossref status: 200
+  Title match: yes
+
+Entry: Seddon2022
+  DOI: 10.1126/science.abn9668
+  Crossref status: 200
+  Title match: yes
+
+Entry: Mo2023
+  DOI: 10.1038/s41586-023-06723-z
+  Crossref status: 200
+  Title match: yes
+
+Entry: Hakeem2023
+  DOI: 10.1002/9781119910527
+  Crossref status: 200
+  Title match: yes
+
+Entry: Gergel2017
+  DOI: 10.1007/978-1-4939-6374-4
+  Crossref status: 200
+  Title match: yes
+
+Entry: Griscom2017
+  DOI: 10.1073/pnas.1710465114
+  Crossref status: 200
+  Title match: yes
+
+Entry: Fargione2018
+  DOI: 10.1126/sciadv.aat1869
+  Crossref status: 200
+  Title match: yes
+
+Entry: Fargione2018
+  DOI: 10.1126/sciadv.aat1869
+  Crossref status: 200
+  Title match: yes
+
+Entry: Hiltunen2021
+  DOI: 10.1016/j.biombioe.2021.106027
+  Crossref status: 200
+  Title match: yes
+
+Entry: Issa2023
+  DOI: 10.3390/en16196967
+  Crossref status: 200
+  Title match: yes
+
+Entry: Valipour2021
+  DOI: 10.1016/j.scitotenv.2020.144881
+  Crossref status: 200
+  Title match: yes
+
+Entry: Wang2023
+  DOI: 10.3390/f14081587
+  Crossref status: 200
+  Title match: yes
+
+Entry: Johnson1977
+  DOI: 10.1093/forestscience/23.s1.a0001
+  Crossref status: 200
+  Title match: yes
+
+Entry: MacKenzie2018
+  DOI: 10.1127/phyto/2017/0160
+  Crossref status: 200
+  Title match: yes
+
+Entry: Feijoo2025
+  DOI: 10.1016/j.rser.2024.114945
+  Crossref status: 200
+  Title match: yes
+
+Entry: Bellamy2020
+  DOI: 10.1038/s41558-019-0661-z
+  Crossref status: 200
+  Title match: yes
+
+Entry: Spies2019
+  DOI: 10.1016/j.biocon.2018.11.022
+  Crossref status: 200
+  Title match: yes
+
+Entry: CanadianMiningJournal2021
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Seely2002
+  DOI: 10.1016/S0378-1127(02)00303-1
+  Crossref status: 200
+  Title match: yes
+
+Entry: Lee2024
+  DOI: 10.1016/j.jclepro.2024.143749
+  Crossref status: 200
+  Title match: yes
+
+Entry: Rissman2020
+  DOI: 10.1016/j.apenergy.2020.114848
+  Crossref status: 200
+  Title match: yes
+
+Entry: Bellois2022
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Legge2021
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Figueiredo2023
+  DOI: 10.1016/j.cles.2023.100075
+  Crossref status: 200
+  Title match: yes
+
+Entry: Song2019
+  DOI: 10.1016/j.energy.2018.12.110
+  Crossref status: 200
+  Title match: yes
+
+Entry: Wang2018
+  DOI: 10.1016/j.rser.2017.09.103
+  Crossref status: 200
+  Title match: yes
+
+Entry: essd-16-3601-2024
+  DOI: 10.5194/essd-16-3601-2024
+  Crossref status: 200
+  Title match: yes
+
+Entry: LEALFILHO2018589
+  DOI: 10.1016/j.jclepro.2017.12.144
+  Crossref status: 200
+  Title match: yes
+
+Entry: wang2024critical
+  DOI: 10.1016/j.jclepro.2024.142972
+  Crossref status: 200
+  Title match: yes
+
+Entry: gross2021challenge
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: Hisano2024functional
+  DOI: 10.1126/sciadv.adn4152
+  Crossref status: 200
+  Title match: yes
+
+Entry: Kabisch2016nature
+  DOI: 10.5751/ES-08373-210239
+  Crossref status: 200
+  Title match: yes
+
+Entry: Rey2024forest
+  DOI: 10.1016/j.nbsj.2024.100114
+  Crossref status: 200
+  Title match: yes
+
+Entry: sowinska2022nature
+  DOI: 10.1016/j.nbsj.2022.100009
+  Crossref status: 200
+  Title match: yes
+
+Entry: drever2021natural
+  DOI: 10.1126/sciadv.abd6034
+  Crossref status: 200
+  Title match: yes
+
+Entry: Portner2022IPCC
+  DOI: 10.1017/9781009325844
+  Crossref status: 200
+  Title match: no
+    Bib title: Climate Change 2022: Impacts, Adaptation and Vulnerability. Working Group II Contribution to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change
+    API title: Climate Change 2022 – Impacts, Adaptation and Vulnerability
+
+Entry: Waring2020
+  DOI: 10.3389/ffgc.2020.00058
+  Crossref status: 200
+  Title match: yes
+
+Entry: Smyth2014Quantifying
+  DOI: 10.5194/bg-11-3515-2014
+  Crossref status: 200
+  Title match: yes
+
+Entry: Bettinger2013Forest
+  DOI: 10.1080/21580103.2013.773659
+  Crossref status: 200
+  Title match: yes
+
+Entry: papa2023modeling
+  DOI: 10.3389/ffgc.2023.1259010
+  Crossref status: 200
+  Title match: yes
+
+Entry: Johnston2017Managing
+  DOI: 10.1016/j.ecolecon.2017.03.023
+  Crossref status: 200
+  Title match: yes
+
+Entry: ForestNB2025Impact
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: MacDicken2015Global
+  DOI: 10.1016/j.foreco.2015.02.005
+  Crossref status: 200
+  Title match: yes
+
+Entry: Smith2022Long
+  DOI: 10.1038/s43247-022-00636-x
+  Crossref status: 200
+  Title match: yes
+
+Entry: Flotemersch2016Watershed
+  DOI: 10.1002/rra.2978
+  Crossref status: 200
+  Title match: yes
+
+Entry: Worrall2009Towards
+  DOI: 10.1016/j.jclepro.2009.04.013
+  Crossref status: 200
+  Title match: yes
+
+Entry: Taylor2021Managing
+  DOI: 10.1016/j.crm.2021.100379
+  Crossref status: 200
+  Title match: yes
+
+Entry: paradis2018bi
+  DOI: 10.1139/cjfr-2017-0240
+  Crossref status: 200
+  Title match: yes
+
+Entry: Jowitt2020
+  DOI: 10.1038/s43247-020-0011-0
+  Crossref status: 200
+  Title match: yes
+
+Entry: Paradis_ws3_a_Wood_2025
+  DOI: 10.5281/zenodo.5579777
+  Crossref status: 404
+
+Entry: Paradis2025_ws3_preprint
+  DOI: 10.31223/X55R1X
+  Crossref status: 200
+  Title match: yes
+
+Entry: libcbmpy
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: KURZ2009480
+  DOI: 10.1016/j.ecolmodel.2008.10.018
+  Crossref status: 200
+  Title match: yes
+
+Entry: geng2017review
+  DOI: 10.1016/j.forpol.2017.08.007
+  Crossref status: 200
+  Title match: yes
+
+Entry: braun2016apparent
+  DOI: 10.1016/j.forpol.2015.11.008
+  Crossref status: 200
+  Title match: yes
+
+Entry: CanadaOpenData2025
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: BCTSA
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: bcgov2025
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: BCGov_ForestInventory
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: neilson2008optimal
+  DOI: 10.1139/X08-120
+  Crossref status: 200
+  Title match: yes
+
+Entry: BCForestApportionment
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: JEM2007
+  DOI: 10.22230/jem.2007v8n2a510
+  Crossref status: 200
+  Title match: yes
+
+Entry: Wu2017
+  DOI: 10.1007/s11442-017-1372-x
+  Crossref status: 200
+  Title match: yes
+
+Entry: Boisvenue2022
+  DOI: 10.1088/1748-9326/ac9919
+  Crossref status: 200
+  Title match: yes
+
+Entry: Diaz2006
+  DOI: 10.1371/journal.pbio.0040277
+  Crossref status: 200
+  Title match: yes
+
+Entry: McGarvey2015
+  DOI: 10.1890/14-1154.1
+  Crossref status: 200
+  Title match: yes
+
+Entry: ezquerro2016operational
+  DOI: 10.3390/f7100229
+  Crossref status: 200
+  Title match: yes
+
+Entry: Brunet-Navarro2016
+  DOI: 10.1111/gcb.13235
+  Crossref status: 200
+  Title match: yes
+
+Entry: Thom2019
+  DOI: 10.1016/j.foreco.2019.03.053
+  Crossref status: 200
+  Title match: yes
+
+Entry: nbds_dss_2025
+  DOI: 10.5281/zenodo.17316315
+  Crossref status: 404
+
+Entry: paradis2013risk
+  DOI: 10.1139/cjfr-2012-0334
+  Crossref status: 200
+  Title match: yes
+
+Entry: BC_Mill_List_2020
+  DOI: (missing)
+  Crossref status: n/a
+
+Entry: head2020dynamic
+  DOI: 10.1016/j.buildenv.2020.106751
+  Crossref status: 200
+  Title match: yes
+
+Entry: ke2024climate
+  DOI: 10.14288/1.0441338
+  Crossref status: 404
+
+Entry: yan2025mathematical
+  DOI: 10.14288/1.0449036
+  Crossref status: 404
