@@ -188,7 +188,7 @@ Objective function (\ref{eq:10}) tries to maximize amount of carbon stock in the
 \end{align}
 
 \begin{align}
-S_{pt} &= \left( \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right) S_{p(t-1)} + \sum_{i \in Z} \sum_{k \in K} \alpha_{ik2t} x_{ik} \cdot w \cdot n \right) \label{eq:11}
+S_{pt} &= \left( \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right) S_{p(t-1)} + \sum_{i \in I} \sum_{j \in J_i} \mu_{ij2t} x_{ij}\, w\, n \right) \label{eq:11}
 \end{align}
 
 \noindent where:
@@ -197,27 +197,25 @@ S_{pt} &= \left( \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right) S_{p(t-1)} + \sum_{i
     \text{n} &:= \text{carbon content}, \\
     \text{P} &:= \text{set of HWP } p \in P, \\
     \text{S}^{e} &:= \text{carbon retained in the ecosystem}, \\
-    \text{S}_{pt} &:= \text{carbon stock in HWP } p \text{ in period } t , \\
+    \text{S}_{pt} &:= \text{carbon stock in HWP } p \text{ in period } t, \\
     t_{1/2}^{p} &:= \text{half-life of the HWP }p \in P.
 \end{align*}
 
 \emph{Minimize net emissions.}
    Objective function (\ref{eq:12}) minimizes total emissions considering ecosystem emissions, HWPs decay and displacement effects.
-   The ecosystem emissions are obtained from libCBM \citep{libcbmpy} while emissions from decaying HWPs are calculated using their half lives. Additionally, these HWPs have displacement effects, avoiding emissions by replacing other GHG-intensive products \citep{geng2017review}. Periodic emissions from HWPs decay and displacement over the planning horizons are calculated using Eqs. (\ref{eq:13}) and (\ref{eq:14}) respectively.
+   The ecosystem emissions are obtained from libCBM \citep{libcbmpy} while emissions from decaying HWPs are calculated using their half-lives. Additionally, these HWPs have displacement effects, avoiding emissions by replacing other GHG-intensive products \citep{geng2017review}. Periodic emissions from HWPs decay and displacement over the planning horizons are calculated using Eqs. (\ref{eq:13}) and (\ref{eq:14}).
    
 \begin{align}
    \min & \quad E^{e} + \sum_{p \in P} \sum_{t \in T} E_{pt} - \sum_{d \in D} \sum_{t \in T} E_{dt}
    \label{eq:12}
 \end{align}   
 \begin{multline}
-    E_{pt} = \left( (1 - \frac{ln 2}{t_{1/2}^{p}}) \times 
-    \sum_{i \in Z} \sum_{k \in K} \alpha_{ik2t} x_{ik} \times \text{m}_{p} \times \text{w} \right. \\
-    \left. \times \text{n} \times \frac{44}{12} \right)
+    E_{pt} = \frac{44}{12} \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right)
+    \left( \sum_{i \in I} \sum_{j \in J_i} \mu_{ij2t} x_{ij}\, \text{m}_{p}\, \text{w}\, \text{n} \right)
     \label{eq:13}
 \end{multline}
 \begin{multline}
-    E_{dt} = \left( \sum_{i \in Z} \sum_{k \in K} \sum_{p \in P} \alpha_{ik2t} x_{ik} \times \text{m}_{p} \times r_{pd} \times \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right) \right. \\
-    \left. \times \text{f} \times \text{w} \times \text{n} \times \frac{44}{12} \right)
+    E_{dt} = \frac{44}{12} \left( \sum_{i \in I} \sum_{j \in J_i} \sum_{p \in P} \mu_{ij2t} x_{ij}\, \text{m}_{p}\, r_{pd}\, \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right)\, \text{f}\, \text{w}\, \text{n} \right)
     \label{eq:14}
 \end{multline}
   
@@ -234,7 +232,7 @@ S_{pt} &= \left( \left(1 - \frac{\ln 2}{t_{1/2}^{p}}\right) S_{p(t-1)} + \sum_{i
 
 \subsection{Environmental indicators}
 \label{sec: indicators}
-Outputs from the prototype framework include a set of KPI spanning environmental aspects, allowing evaluation of forest management practices under various scenarios and management objectives in our case studies. 
+Outputs from the prototype framework include a set of KPIs spanning environmental aspects, allowing evaluation of forest management practices under various scenarios and management objectives in our case studies. 
 
 Most of the studies conducted in the past focused on the various environmental impacts of forest management activities \citep{seely2002,kurz2009480,valipour2021,boisvenue2022}. In the prototype developed in this study, carbon stocks are evaluated as part of environmental indicators in multiple pools, including total carbon of the ecosystem (biomass and DOM) and HWP.
 Net emissions are calculated by considering emissions from ecosystem and HWP decay, while accounting for carbon removals from forest growth and the displacement effect of HWP. 
