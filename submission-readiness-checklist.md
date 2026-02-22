@@ -1,25 +1,40 @@
-## NBDS DSS Readiness Assessment for Cleaner Environmental Systems Submission
+## NBDS DSS Submission Readiness Checklist (Sustainable Futures)
 
 | **Category** | **Status** | **Details & Notes** |
 |--------------|------------|---------------------|
-| Article type & length | ✅ Ready | Research article ~7,950 words (scripted estimate) fits 6,000–8,000 CES range; keep final draft below 8,000 after edits. |
-| Title page & affiliations | ✅ Ready | EarthArXiv cover removed; front matter now uses CES format with superscripted affiliation + individual emails, and standalone `title_page-cesys.pdf` generated for Editorial Manager upload. |
-| Abstract | ✅ Ready | Revised abstract in `manuscript.tex` now ≈190 words and meets ≤250-word requirement. |
-| Keywords | ✅ Ready | `manuscript.tex:97-99` lists six keywords via `\sep`; mirror the same list in the submission portal metadata. |
-| Highlights | ✅ Ready | Standalone `highlights.txt` mirrors manuscript bullets (≤85 chars, 5 items) for Editorial Manager upload. |
-| Graphical abstract | ✅ Ready | `nbds_dss_manuscript_graphical-abstract.pdf` (2000×800 pt) meets ≥531×1328 px requirement; confirm originality (non-AI) and upload separately. |
-| Mandatory declarations | ✅ Ready | CRediT statement, funding, competing interest, AI-use disclosure, acknowledgments, and data availability section all present and aligned with Guide requirements. |
-| Figures & tables | ✅ Ready | High-res PDFs checked; captions appear in manuscript PDF and colour choices confirmed accessible. |
-| References & citations | ✅ Ready | Numeric style via `elsarticle-num-names`; dataset entries now prefixed with `[dataset]` and `make validate-references` passes. Confirm LTWA abbreviations during final compile. |
-| Supplementary files | ✅ Ready | Appendices embedded in manuscript; no external supplementary data declared. Confirm none required by reviewers before submission. |
-| Submission package | ✅ Ready | Cover letter updated with `\today`; archive `cesys_submission_package.tar.gz` now bundles manuscript sources, figures, highlights, title page assets, and bibliography files. |
-| Editorial Manager metadata | ✅ Ready | ORCIDs, funding info, suggested reviewers, and conflict exclusions compiled for portal entry. |
+| Article type & length | ✅ Ready | Full-length article; texcount reports ~8,641 words (target 6,000–10,000). |
+| Journal target | ✅ Ready | `\journal{Sustainable Futures}` set in `manuscript.tex`. |
+| Title page & affiliations | 🔍 Verify | Frontmatter includes authors, emails, and full postal address; confirm corresponding author phone in portal. |
+| Abstract | ✅ Ready | ~199 words; no citations in `manuscript.tex:61-67`. |
+| Keywords | 🔍 Verify | 6 keywords provided; many are multi-word. Consider tightening to 1–7 mostly single-word keywords. |
+| Highlights | ✅ Ready | Separate `highlights.txt` confirmed for EM; LaTeX highlights removed to avoid divergence. |
+| Graphical abstract | 🔍 Verify | `nbds_dss_manuscript_graphical-abstract.pdf` present; confirm size/readability at 5×13 cm and non-AI origin. |
+| Figures (files + naming) | ⚠️ Needs update | SF expects separate figure files with logical names (e.g., Figure_1.*). Current names include spaces and mixed formats (e.g., `fig 1.1.pdf`, `Fig.2.jpg`). Rename and update `\includegraphics` paths. |
+| Tables | 🔍 Verify | LaTeX tables appear compliant (editable, captions). Ensure all tables cited and numbered in order. |
+| References style | 🔍 Verify | `elsarticle-num-names` should render numeric [#]. Confirm compiled PDF uses square-bracket numbering and web refs include access dates. |
+| Acknowledgements placement | ✅ Ready | Acknowledgements now immediately precede references. |
+| CRediT roles | ✅ Ready | CRediT statement present `manuscript.tex:691-693`. |
+| Competing interests | ⚠️ Needs update | Statement present in manuscript, but SF requires declarations tool docx upload during submission. |
+| Funding statement | 🔍 Verify | Sponsor role statement added; confirm accuracy with authors. |
+| Generative AI disclosure | 🔍 Verify | SF template wording added and placed before references; confirm policy for figures/graphical abstract. |
+| Research data (Option C) | ✅ Ready | Zenodo DOI (10.5281/zenodo.17316315) includes all data and code required to reproduce results; GitHub linked for latest. |
+| Ethics / consent | 🔍 Verify | Likely N/A; confirm and add statement if required. |
+| Inclusive language / sex & gender analysis | 🔍 Verify | Do a quick scan to ensure compliance; add N/A note if appropriate. |
+| Appendices numbering | 🔍 Verify | `\appendix` present; ensure lettered numbering for equations/figures/tables across all appendices. |
+| Submission package | ⚠️ Needs update | Provisional EM package: LaTeX source (.tex/.bib/.bbl + nonstandard .sty), compiled PDF, separate figures, graphical abstract, cover letter PDF, `highlights.txt`. Finalize later. |
+| Portal metadata | 🔍 Verify | Corresponding author details, ORCIDs, funding, and APC selection ready for entry. |
 
-### Recommended Pre-Submission Checks
-- Run `make validate-references` after final edits to reconfirm DOIs/titles.
-- Recompile PDF and visually inspect figure/table placement against CES layout expectations.
-- Confirm no tracked changes or comments remain in any uploaded DOCX/TXT files.
-- Verify that any referenced repositories (Zenodo/software, GitHub) are public with matching version numbers cited in the manuscript.
+### Immediate Action Items
+1. Update `\journal{Sustainable Futures}` and fix acknowledgements placement.
+2. Align highlights (file + LaTeX block) and rename figure files to SF naming convention.
+3. Update AI disclosure section title/wording and add sponsor role statement.
+4. Confirm Option C data compliance (dataset deposit + citation or a clear non-share statement).
+5. Rebuild manuscript PDF and verify references and appendix numbering.
 
-### Open Action Items
-1. Upload package and supporting documents through Editorial Manager.
+### Submission Package Checklist
+- [ ] Manuscript source: `manuscript.tex`, `references.bib`, class/style files
+- [ ] Compiled PDF
+- [ ] Separate figure files (renamed per SF guidance)
+- [ ] `highlights.txt` (3–5 bullets, ≤85 chars)
+- [ ] Graphical abstract file
+- [ ] Declarations tool docx (competing interests)
