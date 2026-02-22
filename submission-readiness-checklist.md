@@ -20,7 +20,7 @@
 | Research data (Option C) | ✅ Ready | Zenodo DOI (10.5281/zenodo.17316315) includes all data and code required to reproduce results; GitHub linked for latest. |
 | Ethics / consent | 🔍 Verify | Likely N/A; confirm and add statement if required. |
 | Inclusive language / sex & gender analysis | 🔍 Verify | Do a quick scan to ensure compliance; add N/A note if appropriate. |
-| Appendices numbering | 🔍 Verify | `\appendix` present; ensure lettered numbering for equations/figures/tables across all appendices. |
+| Appendices numbering | ✅ Ready | Appendix A/B/C numbering verified in compiled PDF (tables and figures). |
 | Build status | ✅ Ready | `latexmk` build succeeded; `Figure_1.pdf` converted to PDF 1.5 to clear the pdfTeX inclusion warning. |
 | Submission package | ⚠️ Needs update | Provisional EM package: LaTeX source (.tex/.bib/.bbl + nonstandard .sty), compiled PDF, separate figures, graphical abstract, cover letter PDF, `highlights.txt`. Finalize later. |
 | Portal metadata | 🔍 Verify | Corresponding author details, ORCIDs, funding, and APC selection ready for entry. |

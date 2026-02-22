@@ -27,7 +27,7 @@
     - [x] Subtask 2.4.1 — Confirm dataset deposit and add explicit dataset citation/link
     - [ ] Subtask 2.4.2 — If data cannot be shared, add a clear reason statement
   - [ ] Task 2.5 — Appendix numbering and references
-    - [ ] Subtask 2.5.1 — Verify lettered numbering for appendix figures/tables/equations
+    - [x] Subtask 2.5.1 — Verify lettered numbering for appendix figures/tables/equations
     - [ ] Subtask 2.5.2 — Confirm numeric reference style in compiled PDF
 
 - [ ] Phase 3 — Figures, tables, and assets
@@ -41,7 +41,7 @@
     - [ ] Subtask 3.3.1 — Ensure tables are cited, numbered, and editable
 
 - [ ] Phase 4 — Build and package
-  - [x] Task 4.1 — Rebuild manuscript PDF
+  - [ ] Task 4.1 — Rebuild manuscript PDF
   - [ ] Task 4.2 — Assemble submission package (LaTeX source, figures, highlights, GA)
   - [ ] Task 4.3 — Final QA pass (spelling/grammar, references, checklist items)
 
