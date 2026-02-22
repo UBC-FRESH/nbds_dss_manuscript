@@ -3,7 +3,7 @@ SHELL := /bin/bash
 # Main document and outputs
 TEX      := manuscript.tex
 PDF      := $(TEX:.tex=.pdf)
-COVER_LETTER_TEX := cover_letter-cesys.tex
+COVER_LETTER_TEX := cover_letter-sf.tex
 COVER_LETTER_PDF := $(COVER_LETTER_TEX:.tex=.pdf)
 TITLE_PAGE_TEX := title_page-cesys.tex
 TITLE_PAGE_PDF := $(TITLE_PAGE_TEX:.tex=.pdf)
