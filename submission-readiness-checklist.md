@@ -11,7 +11,7 @@
 | Graphical abstract | 🔍 Verify | `Graphical_Abstract.pdf` size 2000×800 pt (ratio matches 531×1328 px); non-AI confirmed by author; visual readability check still pending. |
 | Figures (files + naming) | 🔍 Verify | Renamed to `Figure_*.{pdf,jpg}` and paths updated; sample sizes ok and `Figure_2.jpg` is 2550×3300 at 300 DPI; visual legibility check still pending. |
 | Tables | 🔍 Verify | LaTeX tables appear compliant (editable, captions). Ensure all tables cited and numbered in order. |
-| References style | 🔍 Verify | `elsarticle-num-names` should render numeric [#]. Confirm compiled PDF uses square-bracket numbering and web refs include access dates. |
+| References style | ✅ Ready | Compiled PDF shows numeric square-bracket citations (e.g., [1], [2], [3]). |
 | Acknowledgements placement | ✅ Ready | Acknowledgements now immediately precede references. |
 | CRediT roles | ✅ Ready | CRediT statement present `manuscript.tex:691-693`. |
 | Competing interests | ⚠️ Needs update | Statement present in manuscript, but SF requires declarations tool docx upload during submission. |
