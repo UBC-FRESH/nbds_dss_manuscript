@@ -8,8 +8,8 @@
 | Abstract | ✅ Ready | ~199 words; no citations in `manuscript.tex:61-67`. |
 | Keywords | ✅ Ready | Tightened to 6 single-word/hyphenated keywords in `manuscript.tex`. |
 | Highlights | ✅ Ready | Separate `highlights.txt` confirmed for EM; LaTeX highlights removed to avoid divergence. |
-| Graphical abstract | 🔍 Verify | `Graphical_Abstract.pdf` size 2000×800 pt (ratio matches 531×1328 px); non-AI confirmed by author; visual readability check still pending. |
-| Figures (files + naming) | 🔍 Verify | Renamed to `Figure_*.{pdf,jpg}` and paths updated; sample sizes ok and `Figure_2.jpg` is 2550×3300 at 300 DPI; visual legibility check still pending. |
+| Graphical abstract | 🔍 Verify | `Graphical_Abstract.pdf` size 2000×800 pt (ratio matches 531×1328 px); embedded raster layers show >1000 dpi; non-AI confirmed by author; visual readability check still pending. |
+| Figures (files + naming) | 🔍 Verify | Renamed to `Figure_*.{pdf,jpg}` and paths updated; embedded raster layers show ~470+ dpi (e.g., Figure 2); visual legibility check still pending. |
 | Tables | 🔍 Verify | LaTeX tables appear compliant (editable, captions). Ensure all tables cited and numbered in order. |
 | References style | ✅ Ready | Compiled PDF shows numeric square-bracket citations (e.g., [1], [2], [3]). |
 | Acknowledgements placement | ✅ Ready | Acknowledgements now immediately precede references. |
