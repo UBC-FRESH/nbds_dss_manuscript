@@ -15,11 +15,11 @@
 | Acknowledgements placement | ✅ Ready | Acknowledgements now immediately precede references. |
 | CRediT roles | ✅ Ready | CRediT statement present `manuscript.tex:691-693`. |
 | Competing interests | ✅ Ready | Declarations tool docx prepared (`declarations-tool.docx`) with the manuscript statement. |
-| Funding statement | 🔍 Verify | Sponsor role statement added; confirm accuracy with authors. |
-| Generative AI disclosure | 🔍 Verify | SF template wording added and placed before references; confirm policy for figures/graphical abstract. |
+| Funding statement | ✅ Ready | Sponsor role statement confirmed by author. |
+| Generative AI disclosure | ✅ Ready | Wording confirmed by author; no AI-generated figures or results. |
 | Research data (Option C) | ✅ Ready | Zenodo DOI (10.5281/zenodo.17316315) includes all data and code required to reproduce results; GitHub linked for latest. |
-| Ethics / consent | 🔍 Verify | Likely N/A; confirm and add statement if required. |
-| Inclusive language / sex & gender analysis | 🔍 Verify | Do a quick scan to ensure compliance; add N/A note if appropriate. |
+| Ethics / consent | ✅ Ready | Not applicable; statement added to manuscript. |
+| Inclusive language / sex & gender analysis | ✅ Ready | Scan complete; no human subjects or individual-level descriptions. |
 | Appendices numbering | ✅ Ready | Appendix A/B/C numbering verified in compiled PDF (tables and figures). |
 | Build status | ✅ Ready | `latexmk` build succeeded; box warnings resolved; `Figure_1.pdf` converted to PDF 1.5 to clear the pdfTeX inclusion warning. |
 | Submission package | ✅ Ready | Updated package assembled in `sf_submission_package/` and `sf_submission_package.zip` (LaTeX source, .bib/.bbl, class/bst, PDF, figures, GA, `highlights.txt`). |
