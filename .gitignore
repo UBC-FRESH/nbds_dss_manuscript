@@ -35,3 +35,5 @@ _minted-*/
 scratch
 
 .venv
+reference/dbhdistfit*
+reference/ws3*
