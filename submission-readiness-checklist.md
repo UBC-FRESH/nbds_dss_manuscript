@@ -8,8 +8,8 @@
 | Abstract | ✅ Ready | ~199 words; no citations in `manuscript.tex:61-67`. |
 | Keywords | ✅ Ready | Tightened to 6 single-word/hyphenated keywords in `manuscript.tex`. |
 | Highlights | ✅ Ready | Separate `highlights.txt` confirmed for EM; LaTeX highlights removed to avoid divergence. |
-| Graphical abstract | 🔍 Verify | `nbds_dss_manuscript_graphical-abstract.pdf` present; confirm size/readability at 5×13 cm and non-AI origin. |
-| Figures (files + naming) | ⚠️ Needs update | SF expects separate figure files with logical names (e.g., Figure_1.*). Current names include spaces and mixed formats (e.g., `fig 1.1.pdf`, `Fig.2.jpg`). Rename and update `\includegraphics` paths. |
+| Graphical abstract | 🔍 Verify | `Graphical_Abstract.pdf` present; confirm size/readability at 5×13 cm and non-AI origin. |
+| Figures (files + naming) | 🔍 Verify | Renamed to logical `Figure_*.{pdf,jpg}` names and updated `\includegraphics` paths; confirm resolution/legibility. |
 | Tables | 🔍 Verify | LaTeX tables appear compliant (editable, captions). Ensure all tables cited and numbered in order. |
 | References style | 🔍 Verify | `elsarticle-num-names` should render numeric [#]. Confirm compiled PDF uses square-bracket numbering and web refs include access dates. |
 | Acknowledgements placement | ✅ Ready | Acknowledgements now immediately precede references. |

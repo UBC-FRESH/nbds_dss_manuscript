@@ -32,8 +32,8 @@
 
 - [ ] Phase 3 — Figures, tables, and assets
   - [ ] Task 3.1 — Figure file hygiene
-    - [ ] Subtask 3.1.1 — Rename figures to SF naming convention (e.g., `Figure_1.pdf`)
-    - [ ] Subtask 3.1.2 — Update all `\includegraphics` paths
+    - [x] Subtask 3.1.1 — Rename figures to SF naming convention (e.g., `Figure_1.pdf`)
+    - [x] Subtask 3.1.2 — Update all `\includegraphics` paths
     - [ ] Subtask 3.1.3 — Confirm resolution/legibility and non-AI provenance
   - [ ] Task 3.2 — Graphical abstract
     - [ ] Subtask 3.2.1 — Verify size/readability at 5×13 cm
