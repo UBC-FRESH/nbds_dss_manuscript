@@ -6,7 +6,7 @@
 | Journal target | ✅ Ready | `\journal{Sustainable Futures}` set in `manuscript.tex`. |
 | Title page & affiliations | 🔍 Verify | Frontmatter includes authors, emails, and full postal address; confirm corresponding author phone in portal. |
 | Abstract | ✅ Ready | ~199 words; no citations in `manuscript.tex:61-67`. |
-| Keywords | 🔍 Verify | 6 keywords provided; many are multi-word. Consider tightening to 1–7 mostly single-word keywords. |
+| Keywords | ✅ Ready | Tightened to 6 single-word/hyphenated keywords in `manuscript.tex`. |
 | Highlights | ✅ Ready | Separate `highlights.txt` confirmed for EM; LaTeX highlights removed to avoid divergence. |
 | Graphical abstract | 🔍 Verify | `nbds_dss_manuscript_graphical-abstract.pdf` present; confirm size/readability at 5×13 cm and non-AI origin. |
 | Figures (files + naming) | ⚠️ Needs update | SF expects separate figure files with logical names (e.g., Figure_1.*). Current names include spaces and mixed formats (e.g., `fig 1.1.pdf`, `Fig.2.jpg`). Rename and update `\includegraphics` paths. |

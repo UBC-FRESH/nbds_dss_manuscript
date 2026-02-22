@@ -21,7 +21,7 @@
     - [x] Subtask 2.2.2 — Add sponsor role statement to Funding section
     - [x] Subtask 2.2.3 — Move Acknowledgements to directly precede references
   - [ ] Task 2.3 — Keywords and highlights alignment
-    - [ ] Subtask 2.3.1 — Tighten keywords to 1–7, prefer single-word terms
+    - [x] Subtask 2.3.1 — Tighten keywords to 1–7, prefer single-word terms
     - [x] Subtask 2.3.2 — Remove LaTeX highlights block; rely on `highlights.txt` only
   - [ ] Task 2.4 — Data policy compliance (Option C)
     - [x] Subtask 2.4.1 — Confirm dataset deposit and add explicit dataset citation/link
