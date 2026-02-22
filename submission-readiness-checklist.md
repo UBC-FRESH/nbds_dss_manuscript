@@ -22,7 +22,7 @@
 | Inclusive language / sex & gender analysis | 🔍 Verify | Do a quick scan to ensure compliance; add N/A note if appropriate. |
 | Appendices numbering | ✅ Ready | Appendix A/B/C numbering verified in compiled PDF (tables and figures). |
 | Build status | ✅ Ready | `latexmk` build succeeded; box warnings resolved; `Figure_1.pdf` converted to PDF 1.5 to clear the pdfTeX inclusion warning. |
-| Submission package | ✅ Ready | Updated package assembled in `sf_submission_package_v2/` and `sf_submission_package_v2.zip` (LaTeX source, .bib/.bbl, class/bst, PDF, figures, GA, `highlights.txt`). |
+| Submission package | ✅ Ready | Updated package assembled in `sf_submission_package/` and `sf_submission_package.zip` (LaTeX source, .bib/.bbl, class/bst, PDF, figures, GA, `highlights.txt`). |
 | Portal metadata | ✅ Ready | Corresponding author: Gregory Paradis; email: gregory.paradis@ubc.ca; phone: +1 (604) 822-1890; affiliation: Faculty of Forestry \& Environmental Stewardship, University of British Columbia; postal address already in frontmatter. |
 
 ### Immediate Action Items
