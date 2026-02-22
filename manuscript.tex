@@ -113,7 +113,7 @@ This section describes the modeling framework, including the base mathematical f
 \label{sec: Mathematical model}
 
 The prototype can simulate forest growth and different forest management activities (e.g., harvesting) at the landscape level for long-term horizons. To support planning experiments, a linear programming model adapted from \citet{paradis2025_ws3_preprint} is employed to optimize harvest scheduling decisions considering initial forest inventory and forest growth and yield curves to achieve certain objectives while satisfying a set of defined constraints.
-The proposed model has several notations, input parameters, and variables shown in Table \ref{tab:Notations}.
+Definitions for sets, input parameters, and variables in the model are shown in Table \ref{tab:Notations}.
 
 \begin{table}[H]
 \caption{Notations of the model} % Caption placed above the table
@@ -125,63 +125,62 @@ The proposed model has several notations, input parameters, and variables shown 
 \hline
 \textit{Sets} &  \\
 \hline
-$Z$ & Set of spatial zones $i \in Z$ \\
-
-$K$ & Set of available prescriptions $k \in K$ \\
-$J$ & Set of forest outputs, $j \in \{1: \text{area}, 2: \text{volume}\}$ \\
-$T$ & Set of time periods in the planning horizon \\
+$I$ & Set of spatial zones (dtypes) $i \in I$ \\
+$J_i$ & Set of feasible prescriptions (paths) for zone $i \in I$ \\
+$O$ & Set of outputs, $o \in \{1: \text{harvest area}, 2: \text{harvest volume}, 3: \text{growing stock}\}$ \\
+$O'$ & Targeted outputs subject to even-flow constraints, $p \in O' \subseteq O$ (here $p \in \{1,2\}$) \\
+$T$ & Set of planning periods \\
+$T'_p$ & Periods on which even-flow for output $p \in O'$ is enforced \\
 \hline
 \textit{Parameters} & \\
 \hline
-$c_{ij}$ & Objective function contribution of prescription $j \in J_i$ in zone $i \in Z$ \\
-$\beta_j$ & Admissible level of variation on yield of targeted output $j \in J$ \\
-$\alpha_{ikjt}$ & Quantity of output $j \in J$ produced in period $t \in T$ by prescription $k \in K$ in zone $i \in Z$ \\
-$l_{jt}$ & Lower bound on yield of output $j \in J$ in period $t \in T$ \\
-$u_{jt}$ & Upper bound on yield of output $j \in J$ in period $t \in T$ \\
-$y_{j}$ & targeted sustainable yield of output $j \in J$  \\
-$gl$ & Lower bound on the volume growth at the end of the planning horizon\\
+$c_{ij}$ & Objective function contribution of prescription $j \in J_i$ in zone $i \in I$ \\
+$\mu_{ijot}$ & Quantity of output $o \in O$ produced in period $t \in T$ by prescription $j \in J_i$ in zone $i \in I$ \\
+$y_{p}$ & Reference-period level for targeted output $p \in O'$ \\
+$t^{R}_{p}$ & Reference period for targeted output $p \in O'$ \\
+$\varepsilon_{p}$ & Admissible even-flow tolerance for targeted output $p \in O'$ \\
+$v^-_{ot}$ & Lower bound on output $o \in O$ in period $t \in T$ \\
+$v^+_{ot}$ & Upper bound on output $o \in O$ in period $t \in T$ \\
 \hline
 \textit{Variables} &  \\
 \hline
-$I_{jt}$ & Inventory quantity of output $j \in J$ in period $t \in T$\\
-$G_{jt}$ & Growth amount of output $j \in J$ in period $t \in T$\\
-$x_{ik}$ & Proportion of zone $i \in Z$ on which prescription $k \in K$ is applied
+$x_{ij}$ & Proportion of zone $i \in I$ on which prescription $j \in J_i$ is applied
 \end{tabular}
 \label{tab:model}
 \end{table}
 
+In this paper, output indices map as $o=1$ (harvest area), $o=2$ (harvest volume), and $o=3$ (growing stock); even-flow targets apply to $O'=\{1,2\}$.
+
 The mathematical formulation of the proposed model is as follows:
 \begin{align}
-\text{max} & \quad \sum_{i \in Z} \sum_{k \in K} c_{ij} x_{ik} \label{eq:1} \\
-\text{s.t.} & \quad \sum_{k \in K} x_{ik} = 1, \quad \forall i \in Z \label{eq:2} \\
-& \quad y_{j} (1 - \beta_j) \leq \sum_{i \in Z} \sum_{k \in K} \alpha_{ikjt} x_{ik} \leq y_{j} (1 + \beta_j), \quad \forall j \in J, t \in T \label{eq:3} \\
-& \quad l_{jt} \leq \sum_{i \in Z} \sum_{k \in K} \alpha_{ikjt} x_{ik} \leq u_{jt}, \quad \forall j \in J, t \in T \label{eq:4} \\
-& \quad I_{2t} = I_{2(t-1)} + G_{jt} - \sum_{i \in Z} \sum_{k \in K} \alpha_{ik2t} x_{ik}, \quad \forall t \in T \label{eq:5} \\
-& \quad I_{2T} \geq gl \label{eq:6} \\
-& \quad 0 \leq x_{ik} \leq 1, \quad \forall i \in Z, k \in K \label{eq:7}
+\text{max} & \quad \sum_{i \in I} \sum_{j \in J_i} c_{ij} x_{ij} \label{eq:1} \\
+\text{s.t.} & \quad (1-\varepsilon_{p})\,y_{p} \leq \sum_{i \in I} \sum_{j \in J_i} \mu_{ijpt} x_{ij} \leq (1+\varepsilon_{p})\,y_{p}, \quad \forall p \in O', t \in T'_p \label{eq:2} \\
+& \quad v^-_{ot} \leq \sum_{i \in I} \sum_{j \in J_i} \mu_{ijot} x_{ij} \leq v^+_{ot}, \quad \forall o \in O, t \in T \label{eq:3} \\
+& \quad \sum_{j \in J_i} x_{ij} = 1, \quad \forall i \in I \label{eq:4} \\
+& \quad 0 \leq x_{ij} \leq 1, \quad \forall i \in I, j \in J_i \label{eq:5}
 \end{align}
-Objective function (\ref{eq:1}) maximizes the desired objective considering the applied prescriptions. Depending on the problem, different objectives can be defined that will be discussed in Section \ref{sec: Objective functions} Constraint set (\ref{eq:2}) implies that total the proportion of prescriptions on each zone should be one. It is noteworthy that doing nothing is a valid prescription along with other prescriptions such as harvesting. Constraints (\ref{eq:3}) are even flow constraints, ensuring consistent target outputs (i.e., harvested volumes and areas). Constraint set (\ref{eq:4}) imposes upper bound and lower bounds on periodic yields. Constraint set (\ref{eq:5}) determines inventory volume for each period including new growth and harvested volume. A lower bound for the inventory volume in the last period is imposed by the constraint set (\ref{eq:6}). Finally, the domain of decision variables is determined by the constraint sets (\ref{eq:7}).
+For each targeted output $p \in O'$, the reference level $y_{p}$ is defined for a reference period $t^R_p \in T$, and $\varepsilon_p$ controls the allowable even-flow deviation. The objective function (\ref{eq:1}) maximizes (or minimizes) the desired objective considering the applied prescriptions. Depending on the problem, different objectives can be defined that will be discussed in Section \ref{sec: Objective functions}. Constraints (\ref{eq:2}) are even-flow constraints, ensuring consistent targeted outputs across periods. Constraint set (\ref{eq:3}) imposes lower and upper bounds on periodic outputs (e.g., growing stock bounds can be expressed by setting $v^-_{ot}$ for output $o=\text{growing stock}$ at $t=T$). Constraint set (\ref{eq:4}) implies that the total proportion of prescriptions on each zone should be one; doing nothing is a valid prescription alongside harvesting. Finally, the domain of decision variables is determined by the constraint sets (\ref{eq:5}).
 
 \subsubsection{Objective functions}
 \label{sec: Objective functions}
-It should be noted that the model is generic and the objective function can be to maximize harvested volume, minimize harvested area, maximize ecosystem carbon stocks, and minimize net carbon emissions.
+The ws3 modelling framework is very flexible and can accommodate any valid linear objective function defined in terms of the $x_{ij}$ decision variables. For this study, we chose to define objective functions that maximize harvested volume, minimize harvested area, maximize ecosystem carbon stocks, and minimize net carbon emissions.
 
 \emph{Maximize harvested volume.}
-This objective aims to maximize the total harvested volume  where the volume of harvested wood is obtained using timber yield curves. Objective function (\ref{eq:8}) aims to maximize the total harvested volume over the planning horizon.
+This objective aims to maximize the total harvested volume where the volume of harvested wood is obtained using timber yield curves. Objective function (\ref{eq:8}) aims to maximize the total harvested volume over the planning horizon.
 \begin{align}
-       \text{max} & \quad \sum_{i \in Z} \sum_{k \in K} \sum_{t \in T} \alpha_{ik2t} x_{ik} \label{eq:8} 
+       \text{max} & \quad \sum_{i \in I} \sum_{j \in J_i} \sum_{t \in T} \mu_{ij2t} x_{ij} \label{eq:8} 
 \end{align}
 
 \emph{Minimize harvested area.}
-This objective aims to minimze the total harvested area. Objective function (\ref{eq:9}) aims to minimize the total harvested area over the planning horizon.
+This objective aims to minimize the total harvested area. Objective function (\ref{eq:9}) aims to minimize the total harvested area over the planning horizon.
 
 \begin{align}
-       \text{min} & \quad \sum_{i \in Z} \sum_{k \in K} \sum_{t \in T} \alpha_{ik1t} x_{ik} \label{eq:9} 
+       \text{min} & \quad \sum_{i \in I} \sum_{j \in J_i} \sum_{t \in T} \mu_{ij1t} x_{ij} \label{eq:9} 
 \end{align}
 
 
-\emph{Maximize ecosystme carbon stocks.}
-Objective function (\ref{eq:10}) tries to maximize amount of carbon stock in the ecosystem, i.e., forest inventory, and HWP. To get the ecosystem carbon stocks, carbon curves are generated by libCBM \citep{libcbmpy} to track biomass and DOM carbon pools. Biomass pools are referred to those carbon stored in living components including roots and merchantable volumes while Dead Organic Matter (DOM) pools include carbon stocks in woody debris and litter \citep{kurz2009480}.  HWPs are important carbon stocks \citep{geng2017review}, and their half lives are used as a reliable measure to determine carbon storage \citep{braun2016apparent}. Eq. (\ref{eq:11}) is used to determine the periodic carbon stock over the planning horizon, respectively.
+\emph{Maximize ecosystem carbon stocks.}
+Objective function (\ref{eq:10}) tries to maximize the amount of carbon stock in the ecosystem, i.e., forest inventory, and HWP. To get the ecosystem carbon stocks, carbon curves are generated by libCBM \citep{libcbmpy} to track biomass and DOM carbon pools. Biomass pools are referred to those carbon stored in living components including roots and merchantable volumes while Dead Organic Matter (DOM) pools include carbon stocks in woody debris and litter \citep{kurz2009480}. HWPs are important carbon stocks \citep{geng2017review}, and their half-lives are used as a reliable measure to determine carbon storage \citep{braun2016apparent}. Eq. (\ref{eq:11}) is used to determine the periodic carbon stock over the planning horizon.
 
 \begin{align}
 \max \quad & S^{e} + \sum_{p \in P} \sum_{t \in T} S_{pt} \label{eq:10}
@@ -247,7 +246,7 @@ SEI = \frac{-\sum_{i=1}^{S} p_i \ln p_i}{\ln S}
 where \( S \) is the total number of species (species richness), and \( p_i \) is the proportion of individuals belonging to species \( i \).
 The SEI yields a value between 0 and 1, where 1 indicates complete evenness in species distribution. A higher Shannon Index Evenness value reflects greater biodiversity, indicating a more balanced distribution of tree species within the forest.
 
-The framework calculates the Old Growth Index (OGI) by modeling forest age distribution and volume growth. As shown in Eq.(\ref{eq:16}), the index is defined as a piecewise function where the OGI value is zero for younger forest ages, linearly interpolates between specified age thresholds, and reaches a maximum value of 1 for older forests, reflecting the progression towards old-growth conditions.
+The framework calculates the Old Growth Index (OGI) by modeling forest age distribution and volume growth. As shown in Eq. (\ref{eq:16}), the index is defined as a piecewise function where the OGI value is zero for younger forest ages, linearly interpolates between specified age thresholds, and reaches a maximum value of 1 for older forests, reflecting the progression towards old-growth conditions.
 
 \begin{equation}
 \label{eq:16}
@@ -365,9 +364,9 @@ The following subsections offer a detailed analysis of the prototype’s outputs
 
 \subsection{Harvesting scenarios across planning objectives}
 \label{sec: comparison scenarios/objectives}
-The results show that decisions related to harvest scheduling are sensitive to the selected objective. Figure \ref{fig:Fig.3} compares harvested area, harvested volume, and growing stock in the forest lands surrounding Mining Site 1 under the baseline scenario and scenario S0 (which includes only even-flow constraints), across four key objectives: maximizing harvested volume (\text{Max\_hv}), minimizing harvested area \text{Min\_ha}), maximizing ecosystem carbon stocks (\text{Max\_st}), and minimizing net carbon emissions (\text{Min\_em}).
+The results show that decisions related to harvest scheduling are sensitive to the selected objective. Figure \ref{fig:Fig.3} compares harvested area, harvested volume, and growing stock in the forest lands surrounding Mining Site 1 under the baseline scenario and scenario S0 (which includes only even-flow constraints), across four key objectives: maximizing harvested volume (Max\_hv), minimizing harvested area (Min\_ha), maximizing ecosystem carbon stocks (Max\_st), and minimizing net carbon emissions (Min\_em).
 
-For the objective of maximizing harvested volume, scenario S0 results in higher harvested area and harvested volume compared to the baseline. Growing stock under scenario S0 declines more over the planning horizon, indicating more intensive harvesting. Notably, S0 shows increased harvesting levels toward the end of the planning horizon, reflecting an effort to maximize wood resource extraction over time. Under the ecosystem carbon stocks maximization objective, the prototype suggests no harvesting at all in scenario S0. This leads to a substantially higher growing stock, highlighting the system’s preference for carbon accumulation when not constrained by harvesting targets. Similar results are observed under the objective of minimizing harvested area, where the model avoids harvesting entirely to preserve standing biomass. For the objective of minimizing net emissions, harvested area and volume under scenario S0 are significantly lower across all periods compared to the baseline. However, based on the initialized parameters, the prototype recommends a low level of harvesting under the scenario S0. The difference in outcomes between the scenario S0 under  carbon stock maximization and net emissions minimization is likely due to the displacement effect, which reduces the impact of harvest-related emissions by assuming they are offset through substitution.
+For the objective of maximizing harvested volume, scenario S0 results in higher harvested area and harvested volume compared to the baseline. Growing stock under scenario S0 declines more over the planning horizon, indicating more intensive harvesting. Notably, S0 shows increased harvesting levels toward the end of the planning horizon, reflecting an effort to maximize wood resource extraction over time. Under the ecosystem carbon stocks maximization objective, the prototype suggests no harvesting at all in scenario S0. This leads to a substantially higher growing stock, highlighting the system’s preference for carbon accumulation when not constrained by harvesting targets. Similar results are observed under the objective of minimizing harvested area, where the model avoids harvesting entirely to preserve standing biomass. For the objective of minimizing net emissions, harvested area and volume under scenario S0 are significantly lower across all periods compared to the baseline. However, based on the initialized parameters, the prototype recommends a low level of harvesting under the scenario S0. The difference in outcomes between the scenario S0 under carbon stock maximization and net emissions minimization is likely due to the displacement effect, which reduces the impact of harvest-related emissions by assuming they are offset through substitution.
 
 It is also important to examine the behavior of the baseline scenario, which includes harvesting targets applied uniformly across all objectives. Although the same constraints on harvested area, volume, and growing stock are imposed under each objective, the outcomes differ. Harvested volume remains relatively consistent across objectives, reflecting the need to meet predefined volume targets. However, this consistency does not extend to harvested area, where notable variations are observed. These differences may be attributed to the diverse growth rates of tree species and their varying contributions to biomass pools and DOM. Consequently, the harvested area may vary depending on the species composition prioritized under different management objectives.
 
@@ -731,7 +730,7 @@ In this appendix, the values for model parameters are listed.
 \makecell[l]{Description} & 
 \makecell[c]{Value} \\
 \midrule
-$\beta_j$ & Admissible level of variation on yield of targeted output & 0.05 \\
+$\varepsilon_p$ & Admissible even-flow tolerance for targeted output & 0.05 \\
 $w$ & Wood density & 460 $kg/m^{3}$ \\
 $n$ & Carbon content & 0.5\\
 $P$ & Set of HWPs & Solid wood, Paper\\
