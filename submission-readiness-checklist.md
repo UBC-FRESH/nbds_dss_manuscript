@@ -21,7 +21,7 @@
 | Ethics / consent | 🔍 Verify | Likely N/A; confirm and add statement if required. |
 | Inclusive language / sex & gender analysis | 🔍 Verify | Do a quick scan to ensure compliance; add N/A note if appropriate. |
 | Appendices numbering | 🔍 Verify | `\appendix` present; ensure lettered numbering for equations/figures/tables across all appendices. |
-| Build status | 🔍 Verify | `latexmk` build succeeded; pdfTeX warns that `Figure_1.pdf` is PDF 1.7 while PDF 1.5 is expected. Consider down-converting if needed. |
+| Build status | ✅ Ready | `latexmk` build succeeded; `Figure_1.pdf` converted to PDF 1.5 to clear the pdfTeX inclusion warning. |
 | Submission package | ⚠️ Needs update | Provisional EM package: LaTeX source (.tex/.bib/.bbl + nonstandard .sty), compiled PDF, separate figures, graphical abstract, cover letter PDF, `highlights.txt`. Finalize later. |
 | Portal metadata | 🔍 Verify | Corresponding author details, ORCIDs, funding, and APC selection ready for entry. |
 
