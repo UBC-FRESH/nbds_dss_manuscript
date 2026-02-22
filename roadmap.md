@@ -34,9 +34,9 @@
   - [ ] Task 3.1 — Figure file hygiene
     - [x] Subtask 3.1.1 — Rename figures to SF naming convention (e.g., `Figure_1.pdf`)
     - [x] Subtask 3.1.2 — Update all `\includegraphics` paths
-    - [ ] Subtask 3.1.3 — Confirm resolution/legibility and non-AI provenance
+    - [d] Subtask 3.1.3 — Confirm resolution/legibility and non-AI provenance
   - [ ] Task 3.2 — Graphical abstract
-    - [ ] Subtask 3.2.1 — Verify size/readability at 5×13 cm
+    - [d] Subtask 3.2.1 — Verify size/readability at 5×13 cm
   - [ ] Task 3.3 — Tables
     - [ ] Subtask 3.3.1 — Ensure tables are cited, numbered, and editable
 
