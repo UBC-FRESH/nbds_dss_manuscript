@@ -4,15 +4,15 @@ This repository contains the LaTeX source, figures, and supporting material for 
 
 > **Ghasemi, E., Coupland, K., Ghotb, S., & Paradis, G.** Developing a prototype decision support framework to assess forest management scenarios as a nature-based decarbonization solution for the mining sector: A case study in British Columbia, Canada.
 
-The manuscript has been prepared for submission to *Cleaner Environmental Systems* and formatted for EarthArXiv preprint compliance.
+The manuscript is being repackaged for submission to *Sustainable Futures* (transfer from *Cleaner Environmental Systems*).
 
 ## Repository layout
 
-- `manuscript.tex` – main LaTeX source (EarthArXiv cover page + journal submission formatting)
+- `manuscript.tex` – main LaTeX source (journal submission formatting)
 - `references.bib` – bibliography file
-- `nbds_dss_manuscript_graphical-abstract.pdf` – graphical abstract used for EarthArXiv and CES
-- `Fig.*`, `Fig.A.*`, `Fig.B.*` – figure assets referenced in the manuscript
-- `cover_letter-cesys.tex` – submission cover letter for *Cleaner Environmental Systems*
+- `Graphical_Abstract.pdf` – graphical abstract file for submission
+- `Figure_*.{pdf,jpg}` – figure assets referenced in the manuscript (main + appendices)
+- `cover_letter-cesys.tex` – prior submission cover letter (to be updated for SF)
 - `Makefile` – build targets for abbreviating references and compiling the manuscript
 
 ## Build instructions
