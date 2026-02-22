@@ -29,6 +29,10 @@
   - [ ] Task 2.5 — Appendix numbering and references
     - [x] Subtask 2.5.1 — Verify lettered numbering for appendix figures/tables/equations
     - [x] Subtask 2.5.2 — Confirm numeric reference style in compiled PDF
+  - [ ] Task 2.6 — Label hygiene (descriptive, stable labels)
+    - [ ] Subtask 2.6.1 — Replace numeric equation labels (e.g., eq:7) with descriptive names
+    - [ ] Subtask 2.6.2 — Replace numeric figure/table/section labels with descriptive names
+    - [ ] Subtask 2.6.3 — Update all cross-references after relabeling
 
 - [ ] Phase 3 — Figures, tables, and assets
   - [ ] Task 3.1 — Figure file hygiene
@@ -50,3 +54,9 @@
   - [ ] Task 5.2 — Corresponding author details (email, postal address, phone)
   - [ ] Task 5.3 — APC funding/waiver decision documented
   - [ ] Task 5.4 — Record submission ID/date after upload
+
+## Notes — Narrative Anchor (Draft)
+We are arguing that many forest restoration/reforestation projects are “ghost projects”: locally they appear slightly negative NPV, so they never gain a champion and never reach the candidate‑project stage. A global actor with strong biodiversity/carbon (and possibly social) commitments may value these benefits more highly than local actors, effectively shifting the marginal value of outcomes and turning some “almost viable” ghost projects into investable real options. The DSS framework is positioned as a scalable way to scan the solution space, identify these near‑threshold opportunities, and surface candidates that become viable once broader global benefits are priced in.
+
+## Notes — Label Hygiene
+Current equation/figure/table/section labels include numeric patterns (e.g., `eq:7`) that are already out of sync with the rendered numbering. This defeats the purpose of stable, descriptive LaTeX labels and should be corrected.
