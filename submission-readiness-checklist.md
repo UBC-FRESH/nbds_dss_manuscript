@@ -21,15 +21,16 @@
 | Ethics / consent | 🔍 Verify | Likely N/A; confirm and add statement if required. |
 | Inclusive language / sex & gender analysis | 🔍 Verify | Do a quick scan to ensure compliance; add N/A note if appropriate. |
 | Appendices numbering | 🔍 Verify | `\appendix` present; ensure lettered numbering for equations/figures/tables across all appendices. |
+| Build status | 🔍 Verify | `latexmk` build succeeded; pdfTeX warns that `Figure_1.pdf` is PDF 1.7 while PDF 1.5 is expected. Consider down-converting if needed. |
 | Submission package | ⚠️ Needs update | Provisional EM package: LaTeX source (.tex/.bib/.bbl + nonstandard .sty), compiled PDF, separate figures, graphical abstract, cover letter PDF, `highlights.txt`. Finalize later. |
 | Portal metadata | 🔍 Verify | Corresponding author details, ORCIDs, funding, and APC selection ready for entry. |
 
 ### Immediate Action Items
-1. Update `\journal{Sustainable Futures}` and fix acknowledgements placement.
-2. Align highlights (file + LaTeX block) and rename figure files to SF naming convention.
-3. Update AI disclosure section title/wording and add sponsor role statement.
-4. Confirm Option C data compliance (dataset deposit + citation or a clear non-share statement).
-5. Rebuild manuscript PDF and verify references and appendix numbering.
+1. Visual-check figure and graphical abstract readability at submission scale.
+2. Decide whether to down-convert `Figure_1.pdf` to PDF 1.5 to clear the pdfTeX warning.
+3. Verify numeric reference style and appendix numbering in the compiled PDF.
+4. Prepare declarations tool docx for competing interests.
+5. Finalize EM submission package contents (LaTeX sources, figures, GA, highlights, cover letter).
 
 ### Submission Package Checklist
 - [ ] Manuscript source: `manuscript.tex`, `references.bib`, class/style files

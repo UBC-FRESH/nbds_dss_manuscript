@@ -41,7 +41,7 @@
     - [ ] Subtask 3.3.1 — Ensure tables are cited, numbered, and editable
 
 - [ ] Phase 4 — Build and package
-  - [ ] Task 4.1 — Rebuild manuscript PDF
+  - [x] Task 4.1 — Rebuild manuscript PDF
   - [ ] Task 4.2 — Assemble submission package (LaTeX source, figures, highlights, GA)
   - [ ] Task 4.3 — Final QA pass (spelling/grammar, references, checklist items)
 
