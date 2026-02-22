@@ -29,10 +29,10 @@
   - [ ] Task 2.5 — Appendix numbering and references
     - [x] Subtask 2.5.1 — Verify lettered numbering for appendix figures/tables/equations
     - [x] Subtask 2.5.2 — Confirm numeric reference style in compiled PDF
-  - [ ] Task 2.6 — Label hygiene (descriptive, stable labels)
-    - [ ] Subtask 2.6.1 — Replace numeric equation labels (e.g., eq:7) with descriptive names
-    - [ ] Subtask 2.6.2 — Replace numeric figure/table/section labels with descriptive names
-    - [ ] Subtask 2.6.3 — Update all cross-references after relabeling
+  - [x] Task 2.6 — Label hygiene (descriptive, stable labels)
+    - [x] Subtask 2.6.1 — Replace numeric equation labels (e.g., eq:7) with descriptive names
+    - [x] Subtask 2.6.2 — Replace numeric figure/table/section labels with descriptive names
+    - [x] Subtask 2.6.3 — Update all cross-references after relabeling
 
 - [ ] Phase 3 — Figures, tables, and assets
   - [ ] Task 3.1 — Figure file hygiene
